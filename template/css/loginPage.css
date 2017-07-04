@@ -1,0 +1,48 @@
+
+body{
+	background-color: grey;
+}
+
+fieldset{
+	width: 60%;
+	margin: auto;
+}
+
+
+label{
+	float: left;
+	clear: left;
+	width: 20%;
+	text-align: right;
+	margin-bottom: 1em;
+	font-family: monospace;
+	color: blue;
+}
+
+input[type='text']{
+	float: left;
+	width:40%;
+	clear:right;
+	margin-bottom: 1em;
+}
+input[type='password']{
+	float: left;
+	width:40%;
+	clear:right;
+	margin-bottom: 1em;
+}
+input[type='email']{
+	float: left;
+	width:40%;
+	clear:right;
+	margin-bottom: 1em;
+}
+
+button{
+	clear: both;
+	display: block;
+	margin-left: 40%;
+	margin-right: 40%;
+	text-align:center;
+	width: 10%;
+}
