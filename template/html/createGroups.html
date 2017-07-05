@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Create Gropus and Add Users Page</title>
+<link rel='stylesheet' type='text/css' href='../css/createGroups.css'/>
+</head>
+<body>
+
+<fieldset id='groupname'>
+	<label for='groupName'>Group Name:</label>
+	<input type='text' value='groupName' id='groupName'>
+</fieldset>
+
+<div id='container'>
+
+<fieldset id='availableUsers'>
+<legend>Available Users</legend>	
+<!--the code below would be auto generated from the backend via the database. Ensure to use pagination-->
+<input type='checkbox' name='availableUsers' value='userId' id='userId'>Username: <br>
+<input type='button' value='Next' /><input type='button' value='Previous' />
+</fieldset>
+
+<div id='middle'>Can be blank or some info can be put here</div>
+
+<fieldset id='addedUsers'>
+<legend>Added Users</legend>	
+<!--the code below would be auto generated from the backend via the database. Ensure to use pagination-->
+<input type='checkbox' name='addedUsers' value='userId' id='userId'> Username: <br> 
+<input type='button' value='Remove' /><input type='submit' value='Create Group' />
+</fieldset>
+
+</div>
+
+</body>
+</html>
