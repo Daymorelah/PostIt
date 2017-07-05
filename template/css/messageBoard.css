@@ -1,0 +1,16 @@
+body{
+	background-color: rgb(210,144,52);
+	margin-top: 2em;
+	display: flex;
+	flex-direction:row;
+	justify-contents:flex-start;
+}
+
+div{
+	background-color: grey;
+	width: 300px;
+	height: 200px;
+	margin: 4em;
+	color: black;
+	font-family: monospace;
+}
