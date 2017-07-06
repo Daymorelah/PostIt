@@ -3,10 +3,12 @@
 <head>
 <meta charset='UTF-8'>
 <title>Sign-up Page</title>
-<link rel='stylesheet' type='text/css' href='../css/signUpPage.css'/>
+<link rel='stylesheet' type='text/css' href='/css/signUpPage.css'/>
+<script type="text/javascript" src='/javascript/jquery.js'></script>
+<script type="text/javascript" src='/javascript/main.js'></script>
 </head>
 <body>
-<form action=''>
+<form action='/api/user/signup' method='post'>
 <fieldset>
 <label for='username'>Username:</label>
 <input type='text' name='username' value='username'>
@@ -15,7 +17,7 @@
 <label for='email'>E-mail:</label>
 <input type='email' name='email' value='e-mail address'>
 <button type='submit'>Sign Up</button>
-<button type='submit' id='login'>or Login</button>
+<button type='button' id='btn-loginPage'>or Login</button>
 </fieldset>
 </form>
 </body>
