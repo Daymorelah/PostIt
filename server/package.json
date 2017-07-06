@@ -9,12 +9,12 @@
   "author": "Ademola Hussain",
   "license": "ISC",
   "devDependencies": {
-<<<<<<< HEAD
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-plugin-import": "^2.6.1",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint-plugin-react": "^7.1.0",
+    "babel-preset-es2015": "^6.24.1"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -22,8 +22,5 @@
     "events": "^1.1.1",
     "express": "^4.15.3",
     "path": "^0.12.7"
-=======
-    "babel-preset-es2015": "^6.24.1"
->>>>>>> apiRoutes
   }
 }
