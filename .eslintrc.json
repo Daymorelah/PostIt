@@ -6,6 +6,7 @@
         "node": true,
         "mocha":true
     },
+    
     "extends": "eslint:recommended",
     "parserOptions": {"sourceType": "module"},
     "rules": {
@@ -24,6 +25,7 @@
       "requireParamDescription": false,
       "requireReturnDescription": true
     }],
+
     "require-jsdoc": ["error", {
         "require": {
             "FunctionDeclaration": true,
@@ -31,6 +33,7 @@
             "ClassDeclaration": true
         }
     }],
+
         "indent": ["error",2],
         "linebreak-style": ["error","windows"],
         "quotes": ["error","single"],
