@@ -4,13 +4,21 @@ body{
 	display: flex;
 	flex-direction:row;
 	justify-contents:flex-start;
+	overflow: auto;
 }
 
-div{
-	background-color: grey;
-	width: 300px;
-	height: 200px;
+.divcontainer{
+	background-color: pink;
+	width: 20%;
+	height: 20%;
 	margin: 4em;
 	color: black;
 	font-family: monospace;
+	padding: 5px;
+}
+
+.divcontainer p {
+	border-bottom: 3px black solid;
+	font-family: monospace; 
+	color: blue;
 }

@@ -11,6 +11,7 @@ body{
 	width:40%;
 	margin-bottom: 2em;
 	padding: 1.5em;
+	background-color: pink;
 }
 
 #container{
@@ -21,6 +22,7 @@ body{
 #availableUsers{
 	justify-content: flex-start;
 	flex: 1;
+	background-color: pink;
 }
 
 #middle{
@@ -31,13 +33,27 @@ body{
 #addedUsers{
 	justify-content: flex-end;
 	flex:1;
+	background-color: pink;
 }
 
 input[type='button']{
 	margin-right: 15px;
 }
-/* To remove the fieldset's border
+/* To remove the fieldset's border*/
 fieldset{
 	border-style: none; 
 }
-/*
+p{
+	color: blue;
+	font-family: monospace;
+}
+
+#addedUserId,#userId{
+	margin-bottom: 1em;
+}
+
+#checkboxx,#groupNameLabel{
+	font-family: monospace;
+	color: blue;
+	font-size: 120%;
+}

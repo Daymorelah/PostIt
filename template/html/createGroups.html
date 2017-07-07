@@ -8,26 +8,29 @@
 <body>
 
 <fieldset id='groupname' method='post' action='/api/group'>
-	<label for='groupName'>Group Name:</label>
+	<label for='groupName' id='groupNameLabel'>Group Name:</label>
 	<input type='text' value='groupName' id='groupName'>
 </fieldset>
 
 <div id='container'>
 
 <fieldset id='availableUsers'>
-<legend>Available Users</legend>	
+<p>Available Users</p>	
 <!--the code below would be auto generated from the backend via the database. Ensure to use pagination-->
-<input type='checkbox' name='availableUsers' value='userId' id='userId'>Username: <br>
+<input type='checkbox' name='availableUsers' value='userId' id='userId'><span id='checkboxx'>Username: </span><br>
 <input type='button' value='Next' /><input type='button' value='Previous' />
 </fieldset>
 
-<div id='middle'>Can be blank or some info can be put here</div>
+<div id='middle'>
+	<p>Can be blank or some info can be put here
+	</p>
+</div>
 
 <form id='addedUsers' action='/api/group/groupid/user' method='post'>
 <fieldset>
-<legend>Added Users</legend>	
+<p>Added Users</p>	
 <!--the code below would be auto generated from the backend via the database. Ensure to use pagination-->
-<input type='checkbox' name='addedUsers' value='userId' id='userId'> Username: <br> 
+<input type='checkbox' name='addedUsers' value='addedUserId' id='addedUserId'><span id='checkboxx'>Username: </span><br>
 <input type='button' value='Remove' /><input type='submit' value='Create Group' />
 </fieldset>
 </form>

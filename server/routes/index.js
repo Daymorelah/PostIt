@@ -14,12 +14,22 @@ router.post('/api/user/signup',(req,res)=>{
 
 router.get('/login',(req,res)=>{
  res.sendFile("loginPage.html",{root:'../template/html'});
-});//end of get function
+});//end of post function
 
 router.post('/api/user/signin',(req,res)=>{
-	var details = req.body
- res.send(details);
-});//end of get function
+	user = req.db ;
+	//user.sync({force: true}).then(() => {
+  // Table created
+   user.create({
+    firstName: req.body.username,
+    lastName: req.body.password
+  });//end of user.create
+//});//end of user.sync
+	user.findAll().then(users => {
+  		console.log(users);
+  		//res.send(users);
+});//end of find all
+});//end of post function
 
 router.get('/createGroup',(req,res)=>{
  res.sendFile("createGroups.html",{root:'../template/html'});
@@ -41,7 +51,7 @@ router.post('/api/group/groupid/message',(req,res)=>{
 
 router.post('/api/group/groupid/user',(req,res)=>{
 	var details = req.body
- res.send('Add user to group');
+ res.send('<h1 style="color:blue;font-family:monospace;text-align:center">Added user to group<h1>');
 });//end of get function
 
 router.get('/msgbrd',(req,res)=>{
