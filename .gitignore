@@ -2,4 +2,5 @@
 # nodejs folder that keeps dependencies
 node_modules
 
+#log file for node
 package-lock.json
