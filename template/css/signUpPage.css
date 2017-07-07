@@ -4,11 +4,19 @@ body{
 	margin-top: 4em;
 }
 
+h1,h3{
+	text-align: center;
+	color: blue;
+	font-family: monospace;
+}
+
+
+
 fieldset{
 	width: 40%;
 	margin: auto;
 	padding-top: 1em;
-	background-color: rgb(131,140,145);
+	background-color:pink; /* rgb(131,140,145);*/
 }
 
 
@@ -19,7 +27,8 @@ label{
 	text-align: right;
 	margin-bottom: 1em;
 	font-family: monospace;
-	color: black;
+	color: blue;
+	font-size: 120%;
 }
 
 input[type='text']{
@@ -47,4 +56,6 @@ button{
 	margin-left: 30%;
 	margin-top: 12px;
 	text-align:center;
+	color: blue;
+	font-family: monospace;
 }

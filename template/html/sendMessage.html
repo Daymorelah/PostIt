@@ -10,9 +10,9 @@
 <form action='/api/group/groupid/message' method='post'>
 <fieldset>
 <!--The value would be the groupID from the database-->
-<label>Select a group to post a message to</label>
+<label id='selectGroupLabel'>Select a group to post a message to</label>
 <select id='selectGroup'>
-	<option value='groupID'>GroupName</option>
+	<option value='groupID' id='groupID'>GroupName</option>
 </select> <br>
 <label id='messageInstruction'>Enter your message below</label><br>
 <textarea id='messageBox' rows='20' cols='50'></textarea>

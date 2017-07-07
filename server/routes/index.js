@@ -46,12 +46,12 @@ router.get('/sndmsg',(req,res)=>{
 
 router.post('/api/group/groupid/message',(req,res)=>{
 	var details = req.body
- res.send('You just posted a message to a group');
+ res.send('<h1 style="color:blue;font-family:monospace;text-align:center">You just posted a message to a group</h1>');
 });//end of get function
 
 router.post('/api/group/groupid/user',(req,res)=>{
 	var details = req.body
- res.send('<h1 style="color:blue;font-family:monospace;text-align:center">Added user to group<h1>');
+ res.send('<h1 style="color:blue;font-family:monospace;text-align:center">Added user to group</h1>');
 });//end of get function
 
 router.get('/msgbrd',(req,res)=>{
