@@ -1,11 +1,15 @@
 
 export default (sequelize, DataTypes) => {
   const message = sequelize.define('message', {
-    messageBody: DataTypes.STRING
+    messageBody: DataTypes.STRING,
+    messageAuthor:DataTypes.STRING
   }, {
     classMethods: {
       associate: (models) => {
-        // associations can be defined here
+        message.hasOne(model.group,{
+          foreignKey: "messageID",
+          onDelete: "CASCADE"
+        });//end of hasone relationship
       }//end of associates field
     }//end of classMethods
   });

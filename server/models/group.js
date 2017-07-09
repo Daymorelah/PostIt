@@ -1,7 +1,8 @@
 
 export default (sequelize, DataTypes) => {
   const group = sequelize.define('group', {
-    groupName: DataTypes.STRING
+    groupName: DataTypes.STRING,
+    groupUsers:DataTypes.ARRAY
   }, {
     classMethods: {
       associate: (models) => {
