@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
 	$('#btn-loginPage').on('click', gotoLoginPage);
-	$('input').on('focus',clearInputFields);
+	//$('input').on('focus',clearInputFields);
 
 	function gotoLoginPage(){
 	$.ajax({

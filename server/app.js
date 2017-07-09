@@ -1,15 +1,5 @@
 
-/*The heart and soul of the app. The core script of the app. i.e the heart of the app.**/
-/*
-var express = require('express');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var path = require('path');
-var events = require('events');
-var eventsEmitter = new events.EventEmitter();
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var app = express();*/
+/*The heart and soul of the app. The core script of the app. i.e the heart of the app.*/
   
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -19,7 +9,6 @@ const events = require("events");
 const eventsEmitter = new events.EventEmitter();
 const routes = require("./routes/index");
 const sequelize = require('sequelize');
-//const users = require('./routes/users');
 const app = express();
 
 app.use("/css",express.static('../template/css'));
