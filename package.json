@@ -4,7 +4,7 @@
   "description": "A simple application that allows friends and colleagues create groups for notifications.",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js",
+    "test": "nodemon app.js --exec babel-node",
     "lint": "esw server"
   },
   "author": "Ademola Hussain",
@@ -23,9 +23,10 @@
     "cookie-parser": "^1.4.3",
     "events": "^1.1.1",
     "express": "^4.15.3",
+    "morgan": "^1.8.2",
     "path": "^0.12.7",
     "pg": "^6.4.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.2.1"
+    "sequelize": "^4.3.0"
   }
 }

@@ -1,63 +1,18 @@
 
-const express = require('express');
+const userController = require('../controllers').users;
+const groupController = require('../controllers').groups;
+const messageController = require('../controllers').message;
 
-const router = express.Router();
+module.exports = (app) => {
+  app.get('/api', (req, res) => res.status(200).send({
+    message: 'Welcome to the Todos API!',
+  }));
 
-router.get('/', (req, res) => {
-  res.sendFile('signUpPage.html', { root: '../template/html' });
-}); // end of get function
-
-router.post('/api/user/signup', (req, res) => {
-});// end of post function
-
-router.get('/login', (req, res) => {
-  res.sendFile('loginPage.html', { root: '../template/html' });
-});// end of post function
-
-router.post('/api/user/signin', (req, res) => {
-  /* let user = req.db ;
-    user.create({
-    firstName: req.body.username,
-    lastName: req.body.password 
-    });// end of user.create
-  user.findAll().then((users) => {
-  console.log(users);
-  // res.send(users);
-  });// end of find all */
-});// end of post function
-
-router.get('/createGroup', (req, res) => {
-  res.sendFile('createGroups.html', { root: '../template/html' });
-});// end of get function
-
-router.post('/api/group', (req, res) => {
-  const details = req.body;
-  res.send('You just created a group');
-}); // end of post function
-
-router.get('/sndmsg', (req, res) => {
-  res.sendFile('sendMessage.html', { root: '../template/html' });
-});// end of get function
-
-router.post('/api/group/groupid/message', (req, res) => {
-  const details = req.body;
-  res.send('You just posted a message to a group');
-});// end of get function
-
-router.post('/api/group/groupid/user', (req, res) => {
-  const details = req.body;
-  res.send('<h1 style="color:blue;font-family:monospace;text-align:center">Added user to group<h1>');
-});// end of get function
-
-router.get('/msgbrd', (req, res) => {
-  res.sendFile('messageBoard.html', { root: '../template/html' });
-});// end of get function
-
-router.get('/api/group/groupid/messages', (req, res) => {
-  const details = req.body;
-  res.send('You just view the message board');
-});// end of get function
-
-
-export default router;
-
+  app.post('/api/user/signup', userController.create);
+  app.post('/api/user/signin', userController.signin);
+  app.get('/api/user/list', userController.list);
+  app.post('/api/group', groupController.create);
+  app.get('/api/group/list', groupController.list);
+  app.post('/api/message/:groupID', messageController.addMessage);
+  app.get('/api/message/list', messageController.list);
+};

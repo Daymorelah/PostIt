@@ -5,19 +5,18 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    messageAuthor:{
+    messageAuthor: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     priority: {
-      type: DataTypes.ENUM,
-      values: ['normal', 'user', 'urgent']
+      type: DataTypes.STRING
     },
   }, {
     classMethods: {
       associate: (models) => {
         message.belongsTo(models.group, {
-          name: 'group_ID'
+          foreignKey: 'groupId'
         });
       } // end of associates field
     } // end of classMethods
