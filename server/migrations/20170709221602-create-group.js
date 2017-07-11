@@ -1,6 +1,6 @@
 
-export default {
-  up: (queryInterface, Sequelize) => {
+module.exports = {
+  up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('groups', {
       id: {
         allowNull: false,
@@ -21,7 +21,7 @@ export default {
       }
     });
   },
-  down: (queryInterface, Sequelize) => {
+  down: function(queryInterface, Sequelize) {
     return queryInterface.dropTable('groups');
   }
 };

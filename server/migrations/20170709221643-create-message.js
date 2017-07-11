@@ -1,5 +1,5 @@
 
-export default {
+module.exports = {
   up: (queryInterface, Sequelize) =>{
     return queryInterface.createTable('messages', {
       id: {
