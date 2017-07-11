@@ -7,17 +7,17 @@ export default (sequelize, DataTypes) => {
     },
     groupOwner: {
       type: DataTypes.STRING,
-      allowNull: false}
+      allowNull: false }
   }, {
     classMethods: {
       associate: (models) => {
-        group.hasMany(model.messages,{
-          name: group_ID
+        group.hasMany(models.messages, {
+          name: 'group_ID'
         });
-        group.belongsToMany(users, {through: 'groupUsers'});
+        group.belongsToMany(models.users, { through: 'groupUsers' });
         // associations can be defined here
       }// end of associate key
-    } //end of classMethods
+    } // end of classMethods
   });
   return group;
 };

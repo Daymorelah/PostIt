@@ -3,7 +3,7 @@ export default (sequelize, DataTypes) => {
   const message = sequelize.define('message', {
     messageBody: {
       type: DataTypes.STRING,
-      allowNull:false,
+      allowNull: false,
     },
     messageAuthor:{
       type: DataTypes.STRING,
@@ -11,16 +11,16 @@ export default (sequelize, DataTypes) => {
     },
     priority: {
       type: DataTypes.ENUM,
-      values:["normal","user","urgent"]
+      values: ['normal', 'user', 'urgent']
     },
-  },{
+  }, {
     classMethods: {
       associate: (models) => {
-        message.belongsTo(model.group, {
-          name:group_ID
-        })
-      }//end of associates field
-    }//end of classMethods
-  });//end of const message
+        message.belongsTo(models.group, {
+          name: 'group_ID'
+        });
+      } // end of associates field
+    } // end of classMethods
+  }); // end of const message
   return message;
-};//end of export default.
+}; // end of export default.

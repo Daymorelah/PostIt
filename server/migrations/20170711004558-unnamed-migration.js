@@ -3,18 +3,18 @@
 module.exports = {
   up:  (queryInterface, Sequelize) => [queryInterface.addColumn(
     'messages',
-    'messagAuthor',{
-      type:  Sequelize.STRING,
+    'messagAuthor', {
+      type: Sequelize.STRING,
       allowNull: false
     }),
-    queryInterface.addColumn(
+  queryInterface.addColumn(
       'messages',
       'priority',{
         type: Sequelize.STRING,
         allowNull: false
       })
     ],
-
+ 
   down: function (queryInterface, Sequelize) {
     /*
       Add reverting commands here.
