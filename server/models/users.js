@@ -17,7 +17,7 @@ export default (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: (models) => {
-        users.belongsToMany(models.group, { through: 'groupUsers' });
+        users.belongsToMany(models.groups, { through: 'groupUsers' });
       }// end of field associate
     }// end of classMethods
   });

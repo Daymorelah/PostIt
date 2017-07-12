@@ -12,10 +12,14 @@ export default (sequelize, DataTypes) => {
     priority: {
       type: DataTypes.STRING
     },
+    groupId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   }, {
     classMethods: {
       associate: (models) => {
-        message.belongsTo(models.group, {
+        message.belongsTo(models.groups, {
           foreignKey: 'groupId'
         });
       } // end of associates field

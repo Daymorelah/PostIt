@@ -12,7 +12,7 @@ export default (sequelize, DataTypes) => {
   {
     classMethods: {
       associate: (models) => {
-        group.hasMany(models.message, {
+        group.hasMany(models.messages, {
           foreignKey: 'groupId',
         });
         group.belongsToMany(models.users, { through: 'groupUsers' });
