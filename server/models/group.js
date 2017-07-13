@@ -1,24 +1,30 @@
 
 export default (sequelize, DataTypes) => {
-  const group = sequelize.define('group', {
+  const groups = sequelize.define('groups', {
     groupName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    groupOwner: {
+    discription: {
       type: DataTypes.STRING,
-      allowNull: false }
-  },
-  {
-    classMethods: {
-      associate: (models) => {
-        group.hasMany(models.messages, {
-          foreignKey: 'groupId',
-        });
-        group.belongsToMany(models.users, { through: 'groupUsers' });
-        // associations can be defined here
-      }// end of associate key
-    } // end of classMethods
+      allowNull: false },
   });
-  return group;
+  groups.associate = (models) => {
+    groups.hasMany(models.messages, {
+      foreignKey: 'groupId',
+      as: 'messages'
+    })
+    ;
+  };
+
+  groups.associate = (models) => {
+    groups.belongsToMany(models.users, {
+      through: 'groupUsers',
+      as: 'groupMembers',
+      foreignKey: 'groupID'
+    });
+    // associations can be defined here
+  };// end of associate key
+
+  return groups;
 };

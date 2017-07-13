@@ -1,22 +1,56 @@
 
 const user = require('../models').users;
-
+const md5 = require('md5');
 module.exports = {
-  create(req, res) {
-    return user
-      .create({
+
+  signup(req, res) {
+    console.log('===========', (typeof (req.body.username)));
+    if (req.body.username === '') {
+      res.status(400).send({ status: false, message: 'Username is required' });
+    } else if (req.body.password === '') {
+      res.status(400).send({ status: false, message: 'Password is required' });
+    } else if (req.body.email === '') {
+      res.status(400).send({ status: false, message: 'Email is required' });
+    }
+    user.findOne({
+      where: {
         username: req.body.username,
-        password: req.body.password,
-        email: req.body.email,
-      })
-      .then(data => res.status(201).send(data))
-      .catch(error => res.status(400).send(error));
+      },
+    })
+      .then((userName) => {
+        if (userName) {
+          res.status(400).send({ status: false, message: 'Username already exist' });
+        } else {
+          console.log('========', req.body.username);
+          return user
+            .create({
+              username: req.body.username,
+              password: md5(req.body.password),
+              email: req.body.email,
+            })
+            .then(data => res.status(201).send(data))
+            .catch(error => res.status(400).send(error));
+        }
+      });
   },
   signin(req, res) {
+    if (req.body.username === '') {
+      res.status(400).send({ status: false, message: 'Username is required' });
+    } else if (req.body.password === '') {
+      res.status(400).send({ status: false, message: 'Username is required' });
+    }
     return user.findOne({
-      where: { username: req.body.username, password: req.body.password }
+      where: { username: req.body.username, password: md5(req.body.password) }
     })
-      .then(data => res.status(201).send(data))
+      .then((User) => {
+        if (!User) {
+          return res.status(404).send({
+            message: 'Invalid Username or Password'
+          });
+        }
+        req.sessions.user = User;
+        return res.status(200).send(user);
+      })
       .catch(error => res.status(400).send(error));
   },
   list(req, res) {

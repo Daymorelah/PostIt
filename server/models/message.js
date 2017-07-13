@@ -1,6 +1,6 @@
 
 export default (sequelize, DataTypes) => {
-  const message = sequelize.define('message', {
+  const messages = sequelize.define('messages', {
     messageBody: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -16,14 +16,17 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-  }, {
-    classMethods: {
-      associate: (models) => {
-        message.belongsTo(models.groups, {
-          foreignKey: 'groupId'
-        });
-      } // end of associates field
-    } // end of classMethods
-  }); // end of const message
-  return message;
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  });
+
+  messages.associate = (models) => {
+    messages.belongsTo(models.groups, {
+      foreignKey: 'groupId',
+      as: 'groupMesssage'
+    });
+  }; // end of associates field
+  return messages;
 }; // end of export default.

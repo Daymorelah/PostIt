@@ -20,13 +20,17 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chai": "^4.0.2",
     "cookie-parser": "^1.4.3",
     "events": "^1.1.1",
     "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mocha": "^3.4.2",
     "morgan": "^1.8.2",
     "path": "^0.12.7",
     "pg": "^6.4.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.3.0"
+    "sequelize": "^4.3.1",
+    "supertest": "^3.0.0"
   }
 }

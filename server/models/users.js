@@ -14,12 +14,15 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-  }, {
-    classMethods: {
-      associate: (models) => {
-        users.belongsToMany(models.groups, { through: 'groupUsers' });
-      }// end of field associate
-    }// end of classMethods
   });
+
+  users.associate = (models) => {
+    users.belongsToMany(models.groups, {
+      through: 'groupUsers',
+      as: 'usersOfGroup',
+      foreignKey: 'userID'
+    });
+  }; // end of field associate
+
   return users;
 };
