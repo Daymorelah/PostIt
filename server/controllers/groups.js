@@ -1,16 +1,16 @@
 
-import { groups, users, groupUsers, message } from '../models';
+import db from '../models';
 
-const groupModel = groups;
-const userModel = users;
-const groupUsersModel = groupUsers;
-const messageModel = message;
+const groupModel = db.groups;
+const userModel = db.users;
+const groupUsersModel = db.groupUsers;
+const messageModel = db.messages;
 
 export default {
   createGroup(req, res) {
     if (req.body.groupName === '') {
       res.status(400).send({ status: false, message: 'Username is required' });
-    } else if (req.body.groupOwner === '') {
+    } else if (req.body.discription === '') {
       res.status(400).send({ status: false, message: 'Username is required' });
     }
     return groupModel
@@ -23,9 +23,9 @@ export default {
   },
   addUser(req, res) {
     const groupid = req.params.groupid;
-    const userToAdd = req.session.user.id;
+    const userToAdd = req.body.id;
 
-    return groups.findById(groupid)
+    return groupModel.findById(groupid)
 
       .then((data) => {
         if (!data) {
@@ -62,7 +62,7 @@ export default {
         messageModel.create({
           messageBody: messageToPost,
           priority: req.body.priority,
-          userId: req.session.user.id,
+          userId: req.body.id,
           groupId: group.id
         });
         return res.send('Message sent');
@@ -71,7 +71,7 @@ export default {
   },
   getGroupMessages(req, res) {
     return groupModel
-      .findOne({ where: { id: req.params.id }, include: [{ model: messageModel, as: 'groupMesssage' }] })
+      .findOne({ where: { id: req.params.id }, include: [{ model: messageModel, attributes: ['messageBody'] }] })
       .then(group => res.status(200).send(group))
       .catch(error => res.status(400).send(error.message));
   }

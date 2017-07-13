@@ -12,10 +12,10 @@ export default (sequelize, DataTypes) => {
     priority: {
       type: DataTypes.STRING
     },
-    groupId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    // groupId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -24,8 +24,11 @@ export default (sequelize, DataTypes) => {
 
   messages.associate = (models) => {
     messages.belongsTo(models.groups, {
-      foreignKey: 'groupId',
-      as: 'groupMesssage'
+      foreignKey: {
+        name: 'groupId',
+        allowNull: false,
+      }
+
     });
   }; // end of associates field
   return messages;

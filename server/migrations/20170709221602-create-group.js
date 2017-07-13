@@ -11,7 +11,7 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
-    groupOwner: {
+    discription: {
       allowNull: false,
       type: Sequelize.STRING
     },

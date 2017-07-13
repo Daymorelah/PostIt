@@ -12,7 +12,6 @@ export default (sequelize, DataTypes) => {
   groups.associate = (models) => {
     groups.hasMany(models.messages, {
       foreignKey: 'groupId',
-      as: 'messages'
     })
     ;
   };
