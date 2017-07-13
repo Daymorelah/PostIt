@@ -8,7 +8,7 @@ const groupController = controller.Groups;
 
 export default (app) => {
   app.get('/api', (req, res) => res.status(200).send({
-    message: 'Welcome to the Todos API!',
+    message: 'Welcome to the PostIt API!',
   }));
 
   app.post('/api/user/signup', userController.signup);
