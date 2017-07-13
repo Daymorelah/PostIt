@@ -3,9 +3,9 @@ const user = require('../models').users;
 const md5 = require('md5');
 */
 import md5 from 'md5';
-import users from '../models';
+import models from '../models';
 
-const userModel = users;
+const userModel = models.users;
 
 export default {
 

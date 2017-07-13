@@ -44,12 +44,8 @@ app.use((0, _expressSession2.default)({
   resave: false,
   saveUninitialized: true
 }));
-app.use('/', _routes2.default);
-/*
-// Require our routes into the application.
-require('./server/routes')(app);*/
-//routes(app);
 
+(0, _routes2.default)(app);
 
 app.listen(1111, function () {
   console.log('Server is up and listening!... ');

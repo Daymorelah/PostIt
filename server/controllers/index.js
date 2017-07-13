@@ -3,9 +3,10 @@ const users = require('./users');
 const groups = require('./groups');
 const messages = require('./message');
 */
-import * as users from './users';
-import * as groups from './groups';
+import Users from './users';
+import Groups from './groups';
 
-module.exports = {
-  users, groups,
+export {
+  Users,
+  Groups,
 };

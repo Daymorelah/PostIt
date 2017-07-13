@@ -2,10 +2,12 @@
 const userController = require('../controllers').users;
 const groupController = require('../controllers').groups;*/
 
-import { users, groups } from '../controllers';
+import * as controller from '../controllers';
 
-const userController = users;
-const groupController = groups;
+
+const userController = controller.Users;
+const groupController = controller.Groups;
+
 
 export default (app) => {
   app.get('/api', (req, res) => res.status(200).send({
@@ -19,5 +21,5 @@ export default (app) => {
   app.post('/api/group', groupController.createGroup);
   app.post('/api/group/:groupid/user', groupController.addUser);
   app.post('/api/group/:groupid/message', groupController.postMessage);
-  app.get('/api/group/:groupid/message', groupController.getGroupMessage);
+  // app.get('/api/group/:groupid/message', groupController.getGroupMessage);
 };

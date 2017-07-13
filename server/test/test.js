@@ -1,15 +1,40 @@
-
+/*
 const supertest = require('supertest');
-const expect = require('chai').expect;
+const expect = require('chai').expect; */ 
+import chaiHttp from 'chai-http';
+import chai from 'chai';
+import models from '../models';
+import app from '../../app';
 
-const server = supertest.agent('http://localhost:1111');
+process.env.NODE_Env = 'test';
+const should = chai.should();
+chai.use(chaiHttp);
 
-describe('Test for API routes', () => {
-  this.timeout(99000);
-  it('Return something', () => {
-    server.post('/api/user/signup')
-      .set('Accept', 'application')
-      .expect(200, done);
+describe('PostIt Tests:', () => {
+  beforeEach((done) => {
+    models.users.destroy({
+      where: {},
+      truncate: true
+    });
+    models.groups.destroy({
+      where: {},
+      truncate: true
+    });
+    done();
   });
-})
-;
+  describe('Test for API routes to Create a user', () => {
+    it('Returns details of the registered user', (done) => {
+      chai.request(app).post('/api/user/signup')
+        .type('form')
+        .send({
+          username: 'user1',
+          password: 'everyday',
+          email: 'user1@gmail.com'
+        })
+        .end((err, res) => {
+          res.should.have.status(201);
+          done();
+        });
+    });
+  }); // end of inner describe test-suite
+});// end of describe test-suite

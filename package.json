@@ -5,11 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js --exec babel-node",
-    "build": "babel app.js -d dist",
+    "build": "babel app.js -d dist && babel server -d dist/server",
     "server": "nodemon dist/app.js",
-    "test": "mocha --compilers js:babel-register",
+    "test": "mocha --compilers js:babel-register server/test --timeout 10000",
     "execute": "babel app.js -d dist && nodemon dist/app.js"
-    
   },
   "author": "Ademola Hussain",
   "license": "ISC",
@@ -26,6 +25,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "chai": "^4.0.2",
+    "chai-http": "^3.0.0",
     "cookie-parser": "^1.4.3",
     "events": "^1.1.1",
     "express": "^4.15.3",
@@ -37,6 +37,7 @@
     "pg": "^6.4.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.3.1",
+    "should": "^11.2.1",
     "supertest": "^3.0.0"
   }
 }

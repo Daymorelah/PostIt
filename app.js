@@ -12,6 +12,7 @@ import logger from 'morgan';
 import sessions from 'express-session';
 import routes from './server/routes';
 
+
 const app = express();
 
 app.use('/css', express.static('../template/css'));
@@ -24,7 +25,8 @@ app.use(sessions({
   resave: false,
   saveUninitialized: true
 }));
-app.use('/', routes);
+
+routes(app);
 
 app.listen(1111, () => {
   console.log('Server is up and listening!... ');
