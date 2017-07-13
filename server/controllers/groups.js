@@ -33,7 +33,6 @@ export default {
             message: 'Group does not exists'
           });
         }
-        return res.status(200).send(data);
       })
       .then(groupUsersModel.create({
         userID: userToAdd,
