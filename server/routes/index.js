@@ -1,6 +1,3 @@
-/*
-const userController = require('../controllers').users;
-const groupController = require('../controllers').groups;*/
 
 import * as controller from '../controllers';
 
@@ -21,5 +18,5 @@ export default (app) => {
   app.post('/api/group', groupController.createGroup);
   app.post('/api/group/:groupid/user', groupController.addUser);
   app.post('/api/group/:groupid/message', groupController.postMessage);
-  // app.get('/api/group/:groupid/message', groupController.getGroupMessage);
+  app.get('/api/group/:groupid/message', groupController.getGroupMessages);
 };

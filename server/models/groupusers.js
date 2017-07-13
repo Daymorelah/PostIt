@@ -4,7 +4,6 @@ export default (sequelize, DataTypes) => {
     userID: DataTypes.INTEGER,
     groupID: DataTypes.INTEGER
   });
-  /* groupUsers.associate = (models) => {
-  };*/
+
   return groupUsers;
 };

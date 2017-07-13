@@ -1,6 +1,4 @@
-/*
-const supertest = require('supertest');
-const expect = require('chai').expect; */ 
+
 import chaiHttp from 'chai-http';
 import chai from 'chai';
 import models from '../models';
@@ -23,7 +21,7 @@ describe('PostIt Tests:', () => {
     done();
   });
   describe('Test for API routes to Create a user', () => {
-    it('Returns details of the registered user', (done) => {
+    it('Returns status code created when user loggs in', (done) => {
       chai.request(app).post('/api/user/signup')
         .type('form')
         .send({
@@ -35,6 +33,18 @@ describe('PostIt Tests:', () => {
           res.should.have.status(201);
           done();
         });
+    }); it('Returns Username is required when user doesnt add a user name', (done) => {
+      chai.request(app).post('/api/user/signup')
+        .type('form')
+        .send({
+          username: '',
+          password: 'everyday',
+          email: 'user1@gmail.com'
+        })
+        .end((err, res) => {
+          res.body.message.should.equal('Username is required');
+          done();
+        });
     });
   }); // end of inner describe test-suite
-});// end of describe test-suite
+});// end of inner describe  test-siute

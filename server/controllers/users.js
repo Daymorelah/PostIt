@@ -1,7 +1,4 @@
-/*
-const user = require('../models').users;
-const md5 = require('md5');
-*/
+
 import md5 from 'md5';
 import models from '../models';
 
@@ -55,7 +52,7 @@ export default {
         req.sessions.user = User;
         return res.status(200).send(User);
       })
-      .catch(error => res.status(400).send(error));
+      .catch(error => res.status(400).send(error.message));
   },
   list(req, res) {
     return userModel.all()
