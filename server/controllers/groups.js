@@ -1,9 +1,13 @@
 
+/*
 const groups = require('../models').groups;
 const users = require('../models').users;
 const groupUsers = require('../models').groupUsers;
 const Message = require('../models').message;
+*/
+import groups from '../models';
 
+const 
 module.exports = {
   createGroup(req, res) {
     if ((req.body.groupName === '') || (typeof (req.body.groupName) !== 'string')) {
