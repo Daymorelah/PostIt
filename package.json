@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js --exec babel-node",
-    "build": "babel lib -d dist",
-    "server": "node dist/index.js",
-    "test": "mocha --compilers js:babel-register"
+    "build": "babel app.js -d dist",
+    "server": "nodemon dist/app.js",
+    "test": "mocha --compilers js:babel-register",
+    "execute": "babel app.js -d dist && nodemon dist/app.js"
     
   },
   "author": "Ademola Hussain",

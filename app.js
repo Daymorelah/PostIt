@@ -1,10 +1,16 @@
 
 /* The heart and soul of the app. The core script of the app. i.e the heart of the app.**/ 
-
+/*
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const sessions = require('express-session');
+const sessions = require('express-session'); */
+
+import express from 'express';
+import bodyParser from 'body-parser';
+import logger from 'morgan';
+import sessions from 'express-session';
+import routes from './server/routes';
 
 const app = express();
 
@@ -18,12 +24,10 @@ app.use(sessions({
   resave: false,
   saveUninitialized: true
 }));
-
-// Require our routes into the application.
-require('./server/routes')(app);
+app.use('/', routes);
 
 app.listen(1111, () => {
   console.log('Server is up and listening!... ');
 });
 
-module.exports = app;
+export default app;

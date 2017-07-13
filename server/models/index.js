@@ -9,6 +9,22 @@ const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
 const config = configUrl[env];
 const db = {};
+/*
+import * as Fs from 'fs';
+import * as Path from 'path';
+import * as sequelizer from 'sequelize';
+import * as Config from './../config/config.json';
+
+const fs = Fs;
+const path = Path;
+const Sequelize = sequelizer;
+
+const configUrl = Config;
+
+const basename = path.basename(module.filename);
+const env = process.env.NODE_ENV || 'development';
+const config = configUrl[env];
+const db = {};*/
 
 let sequelize;
 if (config.use_env_variable) {
@@ -33,4 +49,5 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-module.exports = db;
+
+export default db;

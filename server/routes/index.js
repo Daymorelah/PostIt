@@ -1,9 +1,13 @@
-
+/*
 const userController = require('../controllers').users;
-const groupController = require('../controllers').groups;
-// const messageController = require('../controllers').messages;
+const groupController = require('../controllers').groups;*/
 
-module.exports = (app) => {
+import { users, groups } from '../controllers';
+
+const userController = users;
+const groupController = groups;
+
+export default (app) => {
   app.get('/api', (req, res) => res.status(200).send({
     message: 'Welcome to the Todos API!',
   }));
