@@ -7,7 +7,7 @@
     "start": "sequelize db:migrate && babel-node app.js",
     "build": "babel app.js -d dist && babel server -d dist/server",
     "server": "nodemon dist/app.js",
-    "test": "mocha --compilers js:babel-register server/test --timeout 10000",
+    "test": "mocha --compilers js:babel-register server/controllers/test --timeout 10000",
     "execute": "babel app.js -d dist && nodemon dist/app.js"
   },
   "author": "Ademola Hussain",

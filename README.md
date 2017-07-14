@@ -17,17 +17,24 @@ User can add other registered users to created groups
 User send messages to members to of a group.
 
 
-Instructions:
+Instructions on how to Use the app:
 
-    visit https://andela-bootcamp-24-postit.herokuapp.com/ and start using the app
-    Create an account, create groups and add users to groups.
+    visit https://andela-bootcamp-24-postit.herokuapp.com/api 
+    Create an account
+    Create groups and add users to groups.
     You can also send messages to groups.
 
  
-Dependencies:
+Stack Used:
 Node.js
 Sequelze as the ORM.
 Postgresql for data persistence.
+
+
+Instructions on how to get the app to your system:
+    Clone the repo.
+    install dependencies via 'npm install'
+    Test routes using postman.
 
 
 Methodology Used:

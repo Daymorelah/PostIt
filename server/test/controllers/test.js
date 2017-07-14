@@ -1,8 +1,8 @@
 
 import chaiHttp from 'chai-http';
 import chai from 'chai';
-import models from '../models';
-import app from '../../app';
+import models from '../../models';
+import app from '../../../app';
 
 process.env.NODE_Env = 'test';
 const should = chai.should();
@@ -68,6 +68,29 @@ describe('PostIt Tests:', () => {
         })
         .end((err, res) => {
           res.body.message.should.equal('Username is required');
+          done();
+        });
+    });
+  }); // end of inner describe test-suite
+  describe('Test for API routes to add user to a group', () => {
+    it('Returns User successfully added to the group when a user is added to the group', (done) => {
+      chai.request(app).post('/api/group/1/user')
+        .type('form')
+        .send({
+          userID: 'User4'
+        })
+        .end((err, res) => {
+          res.body.message.should.equal('User successfully added to the group');
+          done();
+        });
+    }); it('Returns Group does not exists when a user tries to add a user that is not registered', (done) => {
+      chai.request(app).post('/api/group/77/user')
+        .type('form')
+        .send({
+          userID: 'user2',
+        })
+        .end((err, res) => {
+          res.body.message.should.equal('Group does not exists');
           done();
         });
     });

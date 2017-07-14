@@ -38,7 +38,7 @@ export default {
         userID: userToAdd,
         groupID: req.params.groupid,
       }))
-      .then(() => res.send('User successfully added to the group'))
+      .then(() => res.send({ message: 'User successfully added to the group' }))
       .catch(error => res.status(400).send(error.message));
   },
   list(req, res) {
