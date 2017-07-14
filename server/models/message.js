@@ -12,10 +12,6 @@ export default (sequelize, DataTypes) => {
     priority: {
       type: DataTypes.STRING
     },
-    // groupId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    // },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,

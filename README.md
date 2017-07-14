@@ -15,22 +15,19 @@ User can create an account.
 User can Create broadcast groups.
 User can add other registered users to created groups
 User send messages to members to of a group.
-User can get messages sent to groups he/she belongs.
 
 
 Instructions:
 
     visit https://andela-bootcamp-24-postit.herokuapp.com/ and start using the app
-    allocate budget to each of needs and prioritize them
-    keep udating your daily expenses on each item
-    You get alerted depending on how close you are to each budgets
-    Yola!!!!! You can now detect where all money is going to and have control over your expenses
+    Create an account, create groups and add users to groups.
+    You can also send messages to groups.
 
  
 Dependencies:
-Nodejs.
+Node.js
 Sequelze as the ORM.
-Postgresql for data persistence..
+Postgresql for data persistence.
 
 
 Methodology Used:
