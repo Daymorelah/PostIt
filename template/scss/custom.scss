@@ -1,0 +1,56 @@
+$primaryColor: red;
+
+$font-family: 'Poppins', sans-serif;
+$font-weight: 400;
+
+@font-face
+{
+	font-family: $font-family;
+  font-style: normal;
+  font-weight: $font-weight;
+	src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+
+body {
+  background: #4F5467;
+  font-family:  $font-family;
+  margin: 0;
+  overflow-x: hidden;
+  color: #686868;
+  font-weight: 300;
+}
+
+h1{
+  font-family: $font-family!important;
+}
+
+#wrapper{
+  $width: 100%;
+  width: $width;
+}
+
+.login-box{
+  background-color: #ffffff;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.white-box{
+  background-color: #ffffff;
+  padding: 25px;
+  margin-bottom: 15px;
+}
+
+.white-box h1{
+  text-align: center;
+  font-family: $font-family!important;
+}
+
+.white-box h3{
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0px 0px 12px;
+}
