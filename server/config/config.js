@@ -1,4 +1,4 @@
-{
+module.exports = {
   "development": {
     "username": "postgres",
     "password": "andelabootcamp24",
@@ -14,7 +14,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "url": "process.env.DATABASE_URL",
+    "url": process.env.DATABASE_URL,
     "dialect": "postgres",
     "log": false
   }
