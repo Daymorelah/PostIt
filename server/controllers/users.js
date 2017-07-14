@@ -49,7 +49,7 @@ export default {
             message: 'Invalid Username or Password'
           });
         }
-        req.sessions.user = User;
+        req.user = User;
         return res.status(200).send(User);
       })
       .catch(error => res.status(400).send(error.message));
