@@ -9,9 +9,9 @@ const messageModel = db.messages;
 export default {
   createGroup(req, res) {
     if (req.body.groupName === '') {
-      res.status(400).send({ status: false, message: 'Username is required' });
+      res.status(400).send({ status: false, message: 'Group name is required' });
     } else if (req.body.discription === '') {
-      res.status(400).send({ status: false, message: 'Username is required' });
+      res.status(400).send({ status: false, message: 'Group name is required' });
     }
     return groupModel
       .create({

@@ -20,6 +20,31 @@ describe('PostIt Tests:', () => {
     });
     done();
   });
+  describe('Test for API routes to Create a group', () => {
+    it('Returns status code created when user creates a group', (done) => {
+      chai.request(app).post('/api/group')
+        .type('form')
+        .send({
+          groupName: 'user1',
+          discription: 'Welcome',
+        })
+        .end((err, res) => {
+          res.should.have.status(201);
+          done();
+        });
+    }); it('Returns groupame is required when user doesnt add a group name', (done) => {
+      chai.request(app).post('/api/group')
+        .type('form')
+        .send({
+          groupName: '',
+          discription: 'Standups',
+        })
+        .end((err, res) => {
+          res.body.message.should.equal('Group name is required');
+          done();
+        });
+    });
+  }); // end of inner describe test-suite
   describe('Test for API routes to Create a user', () => {
     it('Returns status code created when user loggs in', (done) => {
       chai.request(app).post('/api/user/signup')
