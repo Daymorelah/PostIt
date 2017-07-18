@@ -4,7 +4,7 @@
   "description": "A simple application that allows friends and colleagues create groups for notifications.",
   "main": "app.js",
   "scripts": {
-    "start": "sequelize db:migrate && babel-node app.js",
+    "start": "babel-node app.js",
     "build": "babel app.js -d dist && babel server -d dist/server",
     "server": "nodemon dist/app.js",
     "test": "mocha --compilers js:babel-register server/controllers/test --timeout 10000",
