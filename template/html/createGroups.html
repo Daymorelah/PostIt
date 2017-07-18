@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Create Gropus and Add Users Page</title>
+<link rel='stylesheet' type='text/css' href='../css/createGroups.css'/>
+</head>
+<body>
+
+<fieldset id='groupname' method='post' action='/api/group'>
+	<label for='groupName' id='groupNameLabel'>Group Name:</label>
+	<input type='text' value='groupName' id='groupName'>
+</fieldset>
+
+<div id='container'>
+
+<fieldset id='availableUsers'>
+<p>Available Users</p>	
+<!--the code below would be auto generated from the backend via the database. Ensure to use pagination-->
+<input type='checkbox' name='availableUsers' value='userId' id='userId'><span id='checkboxx'>Username: </span><br>
+<input type='button' value='Next' /><input type='button' value='Previous' />
+</fieldset>
+
+<div id='middle'>
+	<p>Can be blank or some info can be put here
+	</p>
+</div>
+
+<form id='addedUsers' action='/api/group/groupid/user' method='post'>
+<fieldset>
+<p>Added Users</p>	
+<!--the code below would be auto generated from the backend via the database. Ensure to use pagination-->
+<input type='checkbox' name='addedUsers' value='addedUserId' id='addedUserId'><span id='checkboxx'>Username: </span><br>
+<input type='button' value='Remove' /><input type='submit' value='Create Group' />
+</fieldset>
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+body{
+	background-color: rgb(210,144,52);
+	margin-top: 4em;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+
+#groupname{
+	margin:auto;
+	width:40%;
+	margin-bottom: 2em;
+	padding: 1.5em;
+	background-color: pink;
+}
+
+#container{
+	display:flex;
+	flex-direction:row;
+}
+
+#availableUsers{
+	justify-content: flex-start;
+	flex: 1;
+	background-color: pink;
+}
+
+#middle{
+	justify-content:center;
+	flex:1;
+}
+
+#addedUsers{
+	justify-content: flex-end;
+	flex:1;
+	background-color: pink;
+}
+
+input[type='button']{
+	margin-right: 15px;
+}
+/* To remove the fieldset's border*/
+fieldset{
+	border-style: none; 
+}
+p{
+	color: blue;
+	font-family: monospace;
+}
+
+#addedUserId,#userId{
+	margin-bottom: 1em;
+}
+
+#checkboxx,#groupNameLabel{
+	font-family: monospace;
+	color: blue;
+	font-size: 120%;
+}
