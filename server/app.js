@@ -1,43 +1,31 @@
 
-/*The heart and soul of the app. The core script of the app. i.e the heart of the app.*/
-  
-const express = require("express");
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const path = require("path");
-const events = require("events");
-const eventsEmitter = new events.EventEmitter();
-const routes = require("./routes/index");
-const sequelize = require('sequelize');
+
+import express from 'express';
+import bodyParser from 'body-parser';
+import logger from 'morgan';
+import sessions from 'express-session';
+import routes from './routes';
+
+
 const app = express();
 
-app.use("/css",express.static('../template/css'));
-app.use("/javascript",express.static('../template/javascript'));
+app.use('/css', express.static('../template/css'));
+app.use('/javascript', express.static('../template/javascript'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(logger('dev'));
+app.use(sessions({
+  secret: '£$%$5445&**&(&566**&^&&^6',
+  resave: false,
+  saveUninitialized: true
+}));
 
-const Sequelize = new sequelize('test2', 'postgres', 'andelabootcamp24', {
-  host: 'localhost', dialect: 'postgres', pool: {max: 5,min: 0,idle: 10000}
-}); //end of function sequelize */
+routes(app);
 
-app.use(function(req,res,next){
-  const User = Sequelize.define('user', {
-  firstName: {type: sequelize.STRING},
-  lastName: {type: sequelize.STRING}
-    }); //end of user
-         req.db = User;
-         next();
-            });//end of dabase
+const PORT = process.env.PORT || 1111;
 
-app.use("/",routes);
-
-app.listen(1111, function(){
-	console.log('Server is up and listening!... ');
+app.listen(PORT, () => {
+  console.log('Server is up and listening!... ');
 });
 
-/*.then(() => {
-    console.log('Connection has been established successfully.');
-  }).catch(err => {
-      console.error('Unable to connect to the database:', err);
-      }); //end of catch block*/
+export default app;
