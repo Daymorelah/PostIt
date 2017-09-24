@@ -1,15 +1,14 @@
 
-$(document).ready(function(){
+$('document').ready(() => {
+  function gotoLoginPage() {
+    $.ajax({
+      type: 'GET',
+      url: '/login'
+    }).done((data) => {
+      $('body').html(data);
+    }); // end of ajax call
+  }// end of function gotologinpage
 
-	$('#btn-loginPage').on('click', gotoLoginPage)
 
-	function gotoLoginPage(){
-	$.ajax({
-		type:'GET',
-		url:'/login'
-	}).done(function(data){
-		$('body').html(data);
-	}); //end of ajax call
-	}//end of function gotologinpage
-
-});//end of function document.ready
+  $('#btn-loginPage').on('click', gotoLoginPage);
+});// end of function document.ready

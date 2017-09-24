@@ -1,4 +1,4 @@
 {
   "presets":["es2015"],
-  "ignore": ["./server/migrations","./server/config",]
+  "ignore": ["./server/migrations","./server/config"]
 }
