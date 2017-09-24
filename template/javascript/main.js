@@ -1,7 +1,5 @@
 
 $(document).ready(function(){
-
-	$('#btn-loginPage').on('click', gotoLoginPage);
 	//$('input').on('focus',clearInputFields);
 
 	function gotoLoginPage(){
@@ -12,6 +10,8 @@ $(document).ready(function(){
 		$('body').html(data);
 	}); //end of ajax call
 	}//end of function gotologinpage
+
+  $('#btn-loginPage').on('click', gotoLoginPage);
 
 	function clearInputFields(){
 		$('input').val('');
