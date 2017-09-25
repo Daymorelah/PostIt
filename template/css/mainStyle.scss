@@ -22,7 +22,7 @@ body{
 	margin-top: $themeMargin;
 }
 
-h1,h3{
+h1,h3,h5{
 	color: $themeColor;
 	font-family: $themeFont;
 }
@@ -43,3 +43,9 @@ fieldset{
 .btn{
   @include formButton();
 }
+
+// #messageBox{
+//   .form-control{
+//   margin: 2em;
+//   }
+// }
