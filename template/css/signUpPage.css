@@ -1,61 +1,31 @@
 
 body{
-	background-color: rgb(210,144,52);
+	background-color: #9AAAC7;
 	margin-top: 4em;
 }
 
 h1,h3{
-	text-align: center;
-	color: blue;
+	color: #fff;
 	font-family: monospace;
 }
-
-
-
-fieldset{
-	width: 40%;
-	margin: auto;
-	padding-top: 1em;
-	background-color:pink; /* rgb(131,140,145);*/
-}
-
 
 label{
-	float: left;
-	clear: left;
-	width: 20%;
-	text-align: right;
-	margin-bottom: 1em;
-	font-family: monospace;
-	color: blue;
-	font-size: 120%;
+  color: #fFF;
 }
 
-input[type='text']{
-	float: left;
-	width:40%;
-	clear:right;
-	margin-bottom: 1em;
-}
-input[type='password']{
-	float: left;
-	width:40%;
-	clear:right;
-	margin-bottom: 1em;
-}
-input[type='email']{
-	float: left;
-	width:40%;
-	clear:right;
-	margin-bottom: 1em;
+fieldset{
+	width: 60%;
+	margin: auto;
+	padding-top: 1em;
+  background-color:#8A7D99; /* rgb(131,140,145);*/
+  border-radius: 2em;
 }
 
-button{
-	clear: both;
-	display: block;
-	margin-left: 30%;
-	margin-top: 12px;
-	text-align:center;
-	color: blue;
-	font-family: monospace;
-}
+.btn{
+  clear: both;
+  display: block;
+  margin: auto;
+	color: #fFF;
+  font-family: monospace;
+  background-color: #8B4DDB;
+} 
