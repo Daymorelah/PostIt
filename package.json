@@ -8,7 +8,8 @@
     "build": "babel app.js -d dist && babel server -d dist/server",
     "server": "nodemon dist/app.js",
     "test": "mocha --compilers js:babel-register server/controllers/test --timeout 10000",
-    "execute": "babel app.js -d dist && nodemon dist/app.js"
+    "execute": "babel app.js -d dist && nodemon dist/app.js",
+    "sass":"sass --watch template/css/mainStyle.scss:template/css/style.css"
   },
   "author": "Ademola Hussain",
   "license": "ISC",

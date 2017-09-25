@@ -1,0 +1,45 @@
+$themeBackgrounColor: #9AAAC7;
+$theemeMargin: 4em;
+$themeColor: #fff;
+$themeFont: monospace;
+$themeBtnColor: $themeBackgrounColor;
+
+@mixin formButton(){
+  clear: both;
+  display: block;
+  margin: auto;
+  color: $themeColor;
+  font-family: $themeFont;
+  background-color: $themeBtnColor;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+	background-color: $themeBackgrounColor;
+	margin-top: $theemeMargin;
+}
+
+h1,h3{
+	color: $themeColor;
+	font-family: $themeFont;
+}
+
+label{
+color: $themeColor;
+}
+
+fieldset{
+  width: 60%;
+  display: block;
+  margin: auto;
+  padding: 1em;
+  background-color:#8A7D99;
+  border-radius: 2em;
+}
+
+.btn{
+  @include formButton();
+}
