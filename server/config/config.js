@@ -1,8 +1,10 @@
-module.exports = {
+
+const config = {
+
   development: {
     username: 'postgres',
     password: 'andelabootcamp24',
-    database: 'test2',
+    database: 'waleDB',
     host: '127.0.0.1',
     dialect: 'postgres'
   },
@@ -17,4 +19,6 @@ module.exports = {
     use_env_variable: 'DATABASE_URL',
     dialect: 'postgres'
   }
-}
+};
+
+export default config;
