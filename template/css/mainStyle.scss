@@ -13,14 +13,35 @@ $themeBtnColor: $themeBackgrounColor;
   background-color: $themeBtnColor;
 }
 
+@mixin pagebody(){
+  background-color: $themeBackgrounColor;
+  margin-left: 0;
+  margin-right:0;
+  padding-top: 0;
+}
+
 *{
   box-sizing: border-box;
 }
 
 body{
-	background-color: $themeBackgrounColor;
-	margin-top: $themeMargin;
+	@include pagebody();
 }
+
+.navbar{
+  background-color: $themeBackgrounColor;
+  .nav{
+  li{
+    a{
+      color: $themeColor;
+      font-family: $themeFont;
+    }
+  }}
+  .navbar-brand{
+    color: $themeColor;
+    font-family: $themeFont;
+  }
+} 
 
 h1,h3,h5{
 	color: $themeColor;
@@ -43,9 +64,3 @@ fieldset{
 .btn{
   @include formButton();
 }
-
-// #messageBox{
-//   .form-control{
-//   margin: 2em;
-//   }
-// }

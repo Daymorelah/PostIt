@@ -10,11 +10,34 @@
     <link rel='stylesheet' type='text/css' href='../css/style.css'/>
   </head>
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a href='#' class="navbar-brand"> PostIt</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="#"/> Message Board</a></li>
+            <li><a href="#"/> Create Group</a></li>
+            <li><a href="#"/> Users</a></li>
+            <li class="active"><a href="#"/> Send message</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-log-out"> Logout</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="container-fluid">
       <form action='/api/group/groupid/message' method='post' class="form-horizontal">
         <fieldset>
           <div class="container-fluid">
-            
+
             <div class="form-group">
               <h3 class="text-center">Select a group to post a message to</h3>
               <select id='selectGroup' class="form-control">
