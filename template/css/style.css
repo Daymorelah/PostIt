@@ -11,10 +11,12 @@ body {
   background-color: #9AAAC7; }
   .navbar .nav li a {
     color: #fff;
-    font-family: monospace; }
+    font-family: monospace;
+    font-size: 20px; }
   .navbar .navbar-brand {
     color: #fff;
-    font-family: monospace; }
+    font-family: monospace;
+    font-size: 20px; }
 
 h1, h3, h5 {
   color: #fff;
@@ -37,6 +39,21 @@ fieldset {
   margin: auto;
   color: #fff;
   font-family: monospace;
-  background-color: #9AAAC7; }
+  background-color: #9AAAC7;
+  font-size: 20px; }
+
+.flexContainer {
+  display: -webkit-flex;
+  display: flex;
+  margin: auto;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 80%;
+  background-color: #C911CF; }
+
+.flexItem {
+  width: 50%;
+  border-right: 2px solid #58AA0B;
+  font-family: monospace; }
 
 /*# sourceMappingURL=style.css.map */
