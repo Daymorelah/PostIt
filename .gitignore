@@ -5,3 +5,4 @@ node_modules
 #log file for node
 package-lock.json
 dist
+.sass-cache/
