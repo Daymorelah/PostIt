@@ -14,18 +14,15 @@ export default (sequelize, DataTypes) => {
     },
     userId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   });
 
   messages.associate = (models) => {
     messages.belongsTo(models.groups, {
-      foreignKey: {
-        name: 'groupId',
-        allowNull: false,
-      }
-
-    });
-  }; // end of associates field
+      foreignKey: 'groupId',  //puts groupId column in the message table 
+      as:'group'              //get the group a message belonts to as 'group'
+    }); //end of belongsTo association
+  };    // end of arrow function defintion
   return messages;
 }; // end of export default.

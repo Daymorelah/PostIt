@@ -1,11 +1,6 @@
-'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var config = {
-
+const config = {
+  
   development: {
     username: 'postgres',
     password: 'andelabootcamp24',
@@ -24,10 +19,11 @@ var config = {
     use_env_variable: 'DATABASE_URL',
     dialect: 'postgres',
     ssl: true,
-    dialectOptions: {
+    dialectOptions:{
       ssl: true
     }
   }
 };
-
-module.exports = config;
+  
+export default config;
+  

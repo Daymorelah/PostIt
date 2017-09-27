@@ -32,7 +32,7 @@ module.exports = {
       references: {
         model: 'groups',
         key: 'id',
-        as: 'groupId',
+        as: 'group',
       },
     },
   }),
