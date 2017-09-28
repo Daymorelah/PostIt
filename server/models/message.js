@@ -2,19 +2,12 @@
 export default (sequelize, DataTypes) => {
   const messages = sequelize.define('messages', {
     messageBody: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     messageAuthor: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    priority: {
-      type: DataTypes.STRING
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
     },
   });
 

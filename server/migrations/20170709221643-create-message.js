@@ -29,11 +29,6 @@ module.exports = {
     groupId: {
       allowNull: false,
       type: Sequelize.INTEGER,
-      references: {
-        model: 'groups',
-        key: 'id',
-        as: 'group',
-      },
     },
   }),
   down: (queryInterface, Sequelize) => queryInterface.dropTable('messages')

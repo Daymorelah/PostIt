@@ -1,78 +1,61 @@
 
-import db from '../models';
+import models from '../models';
 
-const groupModel = db.groups;
-const userModel = db.users;
-const groupUsersModel = db.groupUsers;
-const messageModel = db.messages;
+const groupModel = models.groups;
+const userModel = models.users;
+const groupUsersModel = models.groupUsers;
 
 export default {
+  //Create a group in the app
   createGroup(req, res) {
-    if (req.body.groupName === '') {
-      res.status(400).send({ status: false, message: 'Group name is required' });
-    } else if (req.body.discription === '') {
-      res.status(400).send({ status: false, message: 'Group name is required' });
-    }
     return groupModel
       .create({
         groupName: req.body.groupName,
         discription: req.body.discription,
       })
-      .then(data => res.status(201).send(data))
+      .then((data) => {
+        res.status(201).send({
+          message:`Group ${data.groupName} created sucesfully`
+        }); //end of send method
+      })
       .catch(error => res.status(400).send(error.message));
   },
+
+  //add a user to  a group
   addUser(req, res) {
     const groupid = req.params.groupid;
-    const userToAdd = req.body.id;
+    const userIdToAdd = req.body.id;
 
     return groupModel.findById(groupid)
-
       .then((data) => {
         if (!data) {
-          return res.status(404).send({
-            message: 'Group does not exists'
-          });
-        }
-      })
-      .then(groupUsersModel.create({
-        userID: userToAdd,
-        groupID: req.params.groupid,
-      }))
-      .then(() => res.send({ message: 'User successfully added to the group' }))
-      .catch(error => res.status(400).send(error.message));
+          return res.status(404).send({message: 'Group does not exists'});
+        }else{
+          return groupUsersModel.create({
+            userId: userIdToAdd,
+            groupId: req.params.groupid,
+          })
+          .then(() => { 
+            res.send({ 
+              message: 'User successfully added to the group' 
+            });
+          }).catch(error => res.status(400).send(error.message));
+        } //end of else statement
+      }).catch(error => res.status(400).send(error.message)); 
   },
-  list(req, res) {
+
+  //List groups in the database with users that belong to a group
+  listUsers(req, res) {
     return groupModel.all({
+      attributes:['groupName', 'discription'],
       include: [{
         model: userModel,
-        as: 'groupMembers'
+        as: 'groupMembers',
+        attributes: ['username','email'],
       }]
     })
-      .then(data => res.status(201).send(data))
-      .catch(error => res.status(404).send(error.message));
-  },
-  postMessage(req, res) {
-    const groupid = req.params.groupid;
-    const messageToPost = req.body.messageBody;
-    return groupModel.findById(groupid)
-      .then((group) => {
-        if (!group) {
-          return res.sendStatus(404).send({ message: 'Group not found' });
-        }
-        messageModel.create({
-          messageBody: messageToPost,
-          priority: req.body.priority,
-          userId: req.body.id,
-          groupId: group.id
-        });
-        return res.send('Message sent');
-      })
-      .catch(error => res.status(404).send(error.message));
-  },
-  getGroupMessages(req, res) {
-    return groupModel
-      .findOne({ where: { id: req.params.id }, include: [{ model: messageModel, attributes: ['messageBody'] }] })
-      .then(group => res.status(200).send(group))
-      .catch(error => res.status(400).send(error.message));
-  }
-};
+    .then(data => res.status(201).send(data))
+    .catch(error => res.status(404).send(error.message));
+  }, //end of listUsers function definition
+
+}; //end of export default

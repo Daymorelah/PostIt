@@ -1,8 +1,8 @@
 
 export default (sequelize, DataTypes) => {
   const groupUsers = sequelize.define('groupUsers', {
-    userID: DataTypes.INTEGER,
-    groupID: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    groupId: DataTypes.INTEGER
   });
 
   return groupUsers;

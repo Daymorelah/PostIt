@@ -7,11 +7,21 @@ module.exports = {
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    userID: {
-      type: Sequelize.INTEGER
+    userId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      reference:{
+        model: 'users',
+        as: 'groupsForThisUser'
+      }
     },
-    groupID: {
-      type: Sequelize.INTEGER
+    groupId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      reference:{
+        model: 'groups',
+        as: 'groupMemebers'
+      }
     },
     createdAt: {
       allowNull: false,
