@@ -16,7 +16,8 @@ const routes = (app) => {
   app.post('/api/v1/group', groupController.createGroup);
   app.post('/api/v1/group/:groupid/user', groupController.addUser);
   app.post('/api/v1/group/:groupid/message', messageController.sendMessage);
-  app.get('/api/v1/group/:groupid/messages', messageController.getMessages);
+  app.get('/api/v1/message/list', messageController.getMessages);
+  app.get('/api/v1/group/:groupid/messages', groupController.groupMessages);
 
 }; //end of arrow function definition
 

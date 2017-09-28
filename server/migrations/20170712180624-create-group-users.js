@@ -10,7 +10,7 @@ module.exports = {
     userId: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      reference:{
+      references:{
         model: 'users',
         as: 'groupsForThisUser'
       }
@@ -18,7 +18,7 @@ module.exports = {
     groupId: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      reference:{
+      references:{
         model: 'groups',
         as: 'groupMemebers'
       }

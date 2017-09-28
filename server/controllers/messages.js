@@ -4,7 +4,7 @@ const messageModel = models.messages;
 const groupModel = models.groups;
 
 export default {
-  //send messages to a group
+  //sends a message to a group
   sendMessage(req, res){
     return groupModel.findById(req.params.groupid)
     .then( (group) =>{
@@ -24,7 +24,7 @@ export default {
     }).catch( error => res.status(400).send(error.message));
   }, //end of send message function defintion
 
-  //List all messages from the database
+  //List all messages from the database with the group it belong's to
   getMessages(req, res){
     return messageModel.all({
       attributes: ['messageBody', 'messageAuthor'],
@@ -36,6 +36,6 @@ export default {
     }).then( (messages) =>{
       res.status(200).send(messages);
     }).catch( error => res.status(400).send(error.message));
-  } //end of getMessages function definition
+  }, //end of getMessages function definition
 
 }; //end of export default

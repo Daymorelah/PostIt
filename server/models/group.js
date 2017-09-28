@@ -12,8 +12,8 @@ export default (sequelize, DataTypes) => {
 
   groups.associate = (models) => {
     groups.hasMany(models.messages, {
-      foreignKey: 'groupId',
-      as: 'messagesForThisGroup'    //list messages for this group via messagesForThisGroup
+      // foreignKey: 'groupId',
+      // as: 'messagesForThisGroup' ,  //list messages for this group via messagesForThisGroup
     }); //end of hasMany association declaration
   }; //end of arrow function definition
 
