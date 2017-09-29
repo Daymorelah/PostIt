@@ -1,33 +1,26 @@
-'use strict';
+ export default {
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
+   'development':{
+     'username': 'postgres',
+     'password': 'andelabootcamp24',
+     'database': 'waleDB',
+     'host': '127.0.0.1',
+     'dialect': 'postgres'
+   },
 
-var config = {
+   'test': {
+     'username': 'postgres',
+     'password': 'andelabootcamp24',
+     'database': 'test2',
+     'host': '127.0.0.1',
+     'dialect': 'postgres'
+   },
 
-  development: {
-    username: 'postgres',
-    password: 'andelabootcamp24',
-    database: 'waleDB',
-    host: '127.0.0.1',
-    dialect: 'postgres'
-  },
-  test: {
-    username: 'postgres',
-    password: 'andelabootcamp24',
-    database: 'test2',
-    host: '127.0.0.1',
-    dialect: 'postgres'
-  },
-  production: {
-    use_env_variable: 'DATABASE_URL',
-    dialect: 'postgres',
-    ssl: true,
-    dialectOptions: {
-      ssl: true
-    }
-  }
-};
-
-module.exports = config;
+   'production': {
+     'username': 'root',
+     'password': null,
+     'database': 'database_production',
+     'host': '127.0.0.1',
+     'dialect': 'mysql'
+   }
+ };

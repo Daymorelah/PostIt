@@ -1,20 +1,9 @@
-'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+const path = require('path');
 
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var config = {
-  'config': _path2.default.resolve('server', 'config', 'config.js'),
-  'models-path': _path2.default.resolve('server', 'models'),
-  'seeders-path': _path2.default.resolve('server', 'seeders'),
-  'migrations-path': _path2.default.resolve('server', 'migrations')
+module.exports = {
+  "config": path.resolve('./server/config', 'config.js'),
+  "models-path": path.resolve('./server/models'),
+  "seeders-path": path.resolve('./server/seeders'),
+  "migrations-path": path.resolve('./server/migrations')
 };
-
-exports.default = config;
