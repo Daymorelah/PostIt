@@ -3,7 +3,7 @@ import models from '../models';
 
 const groupModel = models.groups;
 const userModel = models.users;
-const groupUsersModel = models.groupUsers;
+//const groupUsersModel = models.groupUsers;
 const messageModel = models.messages;
 
 export default {
@@ -68,7 +68,7 @@ export default {
       attributes: ['groupName', 'discription'],
       include:[{
         model: messageModel,
-        //as: 'messagesForThisGroup'
+        as: 'messagesForThisGroup'
       }]
     })
     .then( (group) => {

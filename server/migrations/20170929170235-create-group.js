@@ -1,28 +1,20 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Messages', {
+    return queryInterface.createTable('Groups', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
       },
-      body: {
-        type: Sequelize.TEXT,
+      groupName: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      priority: {
-        type: Sequelize.ENUM,
-        values: ['Normal', 'Urgent', 'Critical']
-      },
-      groupId: {
-        type: Sequelize.UUID,
-        onDELETE: 'CASCADE',
-        references: {
-          model: 'Groups',
-          key: 'id',
-        }
+      description: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +27,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Messages');
+    return queryInterface.dropTable('Groups');
   }
 };
