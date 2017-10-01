@@ -16,7 +16,7 @@ export default {
     })
       .then( (userName) => {
         if (userName) {
-          res.status(400).send({message: 'Username already exist' });
+          res.status(201).send({message: 'Username already exist' });
         } else {
           return userModel
             .create({
@@ -41,9 +41,9 @@ export default {
       }
     }).then( (user) =>{
       if(!user){
-        res.status(400).send({message:'Username or Password does not exist'});
+        res.status(201).send({message:'Username or Password does not exist'});
       }else if( !(bcrypt.compareSync(req.body.password, user.password)) ){
-        res.status(400).send({message:'Username or Password does not exist'});
+        res.status(201).send({message:'Username or Password does not exist'});
       } //end of else if statement
       else{
         res.status(200).send({message:'Login successful'});

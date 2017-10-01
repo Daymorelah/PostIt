@@ -1,47 +1,87 @@
 
-import chaiHttp from 'chai-http';
 import chai from 'chai';
-import models from '../../models';
-import app from '../../../app';
+import chaiHttp from 'chai-http';
+//import models from '../../models';
+import app from '../../app';
 
-process.env.NODE_Env = 'test';
-const should = chai.should();
 chai.use(chaiHttp);
+const expect = chai.expect;
 
 describe('PostIt Tests:', () => {
-  beforeEach((done) => {
-    models.users.destroy({
-      where: {},
-      truncate: true
-    });
-    models.groups.destroy({
-      where: {},
-      truncate: true
-    });
-    done();
-  });
-  describe('Test for API routes to Create a group', () => {
-    it('Returns status code created when user creates a group', (done) => {
-      chai.request(app).post('/api/group')
-        .type('form')
-        .send({
-          groupName: 'user1',
-          discription: 'Welcome',
-        })
-        .end((err, res) => {
-          res.should.have.status(201);
+  // before((done) => {
+  //   models.User.destroy({
+  //     where: {},
+  //     truncate: true
+  //   });
+  //   models.Group.destroy({
+  //     where: {},
+  //     truncate: true
+  //   });
+  //   done();
+  // });
+  describe.only('Integration tests for User model', () => {
+    it('Returns list of users in the database', (done) => {
+      chai.request(app).get('/api/v1/user/list')
+        .end( (err, res) => {
+          expect(true).to.be.true;
+          expect(res.status).to.deep.equal(201);
+          expect(res.body).to.be.an('array');
+          expect(res.body[0]).to.have.property('email');
+          expect(res.body[0]).to.have.property('username');
           done();
         });
-    }); it('Returns groupame is required when user doesnt add a group name', (done) => {
-      chai.request(app).post('/api/group')
-        .type('form')
+    }); 
+    it('Creates a user in the database', (done) => {
+      chai.request(app).post('/api/v1/user/signup').type('form')
         .send({
-          groupName: '',
-          discription: 'Standups',
+          username: 'Sheun',
+          email: 'Sheungustav@naija.com',
+          password: 'password123',
         })
         .end((err, res) => {
-          res.body.message.should.equal('Group name is required');
-          done();
+          expect(err).to.be.null;
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message','User Sheun created successfully');
+          done(err);
+        });
+    });
+    it('Should make a Username Unique', (done) => {
+      chai.request(app).post('/api/v1/user/signup').type('form')
+        .send({
+          username: 'Sheun',
+          email: 'Sheungustav@naija.com',
+          password: 'password123',
+        })
+        .end((err, res) => {
+          expect(err).to.be.null;
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message','Username already exist');
+          done(err);
+        });
+    });
+    it('Should log a registered uer in', (done) => {
+      chai.request(app).post('/api/v1/user/login').type('form')
+        .send({
+          username: 'Sheun',
+          password: 'password123',
+        })
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message','Login successful');
+          done(err);
+        });
+    });
+    it('Should log a registered uer in', (done) => {
+      chai.request(app).post('/api/v1/user/login').type('form')
+        .send({
+          username: 'Sheuns',
+          password: 'password123',
+        })
+        .end((err, res) => {
+          //expect(err).to.exist;
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message','Username or Password does not exist');
+          done(err);
         });
     });
   }); // end of inner describe test-suite

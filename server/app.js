@@ -8,7 +8,10 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(logger('dev'));
+
+if( app.get('env') !== 'test'){
+  app.use(logger('dev')); 
+}
 
 routes(app);
 
