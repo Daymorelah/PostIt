@@ -5,8 +5,8 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
       },
       body: {
         type: Sequelize.TEXT,
@@ -14,14 +14,16 @@ module.exports = {
       },
       priority: {
         type: Sequelize.ENUM,
-        values: ['Normal', 'Urgent', 'Critical']
+        values: ['Normal', 'Urgent', 'Critical'],
+        defaultValue: 'Normal',
       },
       groupId: {
-        type: Sequelize.UUID,
+        type: Sequelize.INTEGER,
         onDELETE: 'CASCADE',
         references: {
           model: 'Groups',
           key: 'id',
+          //as: 'messagesForThisGroup'
         }
       },
       createdAt: {

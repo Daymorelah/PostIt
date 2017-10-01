@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt';
 import models from '../models';
 
 const salt = 10;
-const userModel = models.users;
-const groupModel = models.groups;
+const userModel = models.User;
+const groupModel = models.Group;
 
 export default {
   //sign up a new user to use the app

@@ -4,8 +4,8 @@ export default (sequelize, DataTypes) => {
     id: {
       allowNull: false,
       primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
     },
     body: {
       type: DataTypes.TEXT,
@@ -14,7 +14,8 @@ export default (sequelize, DataTypes) => {
     },
     priority:{
       type: DataTypes.TEXT,
-      values: ['Normal', 'Urgent', 'Critical']
+      values: ['Normal', 'Urgent', 'Critical'],
+      defaultValue: 'Normal',
     },
   }); //end of define method
     

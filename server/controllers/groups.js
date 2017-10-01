@@ -1,10 +1,10 @@
 
 import models from '../models';
 
-const groupModel = models.groups;
-const userModel = models.users;
-//const groupUsersModel = models.groupUsers;
-const messageModel = models.messages;
+const groupModel = models.Group;
+const userModel = models.User;
+const groupUsersModel = models.groupUsers;
+const messageModel = models.Message;
 
 export default {
   //Create a group in the app
@@ -68,7 +68,8 @@ export default {
       attributes: ['groupName', 'discription'],
       include:[{
         model: messageModel,
-        as: 'messagesForThisGroup'
+        as: 'messagesForThisGroup',
+        attributes: ['body', 'priority'],
       }]
     })
     .then( (group) => {

@@ -5,14 +5,14 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
       },
       groupName: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      description: {
+      discription: {
         type: Sequelize.STRING,
         allowNull: false,
       },

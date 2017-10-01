@@ -1,7 +1,7 @@
 import models from '../models';
 
-const messageModel = models.messages;
-const groupModel = models.groups;
+const messageModel = models.Message;
+const groupModel = models.Group;
 
 export default {
   //sends a message to a group
@@ -12,9 +12,9 @@ export default {
         res.status(400).send({message:'Group not found!'});
       }else{
         return messageModel.create({
-          messageBody: req.body.message,
+          body: req.body.message,
           groupId: req.params.groupid,
-          messageAuthor: req.body.author,
+          priority: req.body.priority,
         }).then( (message) => {
           res.status(200).send({
             message: `Message sent to group ${message.groupId} succesfully`
@@ -27,7 +27,7 @@ export default {
   //List all messages from the database with the group it belong's to
   getMessages(req, res){
     return messageModel.all({
-      attributes: ['messageBody', 'messageAuthor'],
+      attributes: ['body', 'priority'],
       include:[{
         model: groupModel,
         as: 'group',
