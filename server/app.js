@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-if( app.get('env') !== 'test'){
+if( app.get('env') !== 'test'){/* istanbul ignore next */
   app.use(logger('dev')); 
 }
 

@@ -9,14 +9,14 @@ export default {
     return groupModel.findById(req.params.groupid)
     .then( (group) =>{
       if(!group){
-        res.status(400).send({message:'Group not found!'});
+        res.status(201).send({message:'Group not found!'});
       }else{
         return messageModel.create({
           body: req.body.message,
           groupId: req.params.groupid,
           priority: req.body.priority,
         }).then( (message) => {
-          res.status(200).send({
+          res.status(201).send({
             message: `Message sent to group ${message.groupId} succesfully`
           }); //ens of send method
         }).catch( error => res.status(400).send(error.message));
@@ -34,7 +34,7 @@ export default {
         attributes: ['groupName'],
       }]
     }).then( (messages) =>{
-      res.status(200).send(messages);
+      res.status(201).send(messages);
     }).catch( error => res.status(400).send(error.message));
   }, //end of getMessages function definition
 

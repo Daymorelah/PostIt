@@ -9,15 +9,16 @@
     "server": "nodemon dist/app.js",
     "test": "set NODE_ENV=test&& mocha --compilers js:babel-register server/test/controllers/ --timeout 10000",
     "execute": "babel app.js -d dist && nodemon dist/app.js",
-    "cover":"babel-node ./node_modules/babel-istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --compilers js:babel-register server/test/controllers/ --timeout 10000",
+    "cover": "set NODE_ENV=test&& babel-node ./node_modules/babel-istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- server/test/controllers/ --timeout 10000",
     "sass": "sass --watch template/css/mainStyle.scss:template/css/style.css",
-    "migrate":"sequelize db:migrate:undo:all && sequelize db:migrate",
-    "migrate-test":"set NODE_ENV=test&& sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
-    "start-cover":"npm run migrate-test && npm test && npm run migrate-test && npm run cover"
+    "migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "migrate-test": "set NODE_ENV=test&& sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
+    "start-cover": "npm run migrate-test && npm test && npm run migrate-test && npm run cover"
   },
   "author": "Ademola Hussain",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-istanbul": "^0.12.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
