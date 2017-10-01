@@ -51,7 +51,7 @@ export default {
       attributes:['groupName', 'discription'],
       include: [{
         model: userModel,
-        as: 'groupMembers',
+        as: 'usersOfThisGroup',
         attributes: ['username','email'],
       }]
     })

@@ -19,19 +19,19 @@ export default (sequelize, DataTypes) =>{
   });
 
   Group.associate = (models) =>{
+    
     Group.hasMany(models.Message, {
       foreignKey: 'groupId',
       sourceKey: 'id',
       as: 'messagesForThisGroup',
     }); //end of hasMany association definition
-  //}; // end of arrow function definition
 
-  //Group.associate = (models) =>{
     Group.belongsToMany(models.User, {
       through: 'groupUsers',
       foreignKey: 'groupId',
       as: 'usersOfThisGroup',
     }); //end of hasMany association definition
+    
   }; // end of arrow function definition
 
   return Group;
