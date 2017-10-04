@@ -2,6 +2,9 @@
 engines:
   eslint:
     enabled: true
+    checks:
+      linebreak-style:
+        enabled: false
   duplication:
     enabled: true
     config:
