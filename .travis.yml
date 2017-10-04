@@ -1,0 +1,20 @@
+#Runs in sudo enabled trusty's environment
+dist: trusty
+# runs each build in an isolated VM
+sudo: required
+language: node_js
+node_js:
+  - "6"
+#Selecte database service to use
+services:
+  - postgresql
+before_script:
+  - psql -c 'CREATE DATABASE test2;' -U postgres
+  - npm run migrate-test
+script:
+  - npm test
+#before_install:
+# - export CHROME_BIN=/usr/bin/google-chrome
+# - export DISPLAY=:99.0
+# - sh -e /etc/init.d/xvfb start
+after_success: npm run cover
