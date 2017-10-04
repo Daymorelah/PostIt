@@ -1,31 +1,31 @@
 
 export default (sequelize, DataTypes) => {
-  const messages = sequelize.define('messages', {
-    messageBody: {
-      type: DataTypes.STRING,
+  const Message = sequelize.define('Message', {
+    id: {
       allowNull: false,
-    },
-    messageAuthor: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    priority: {
-      type: DataTypes.STRING
-    },
-    userId: {
+      primaryKey: true,
       type: DataTypes.INTEGER,
+      autoIncrement: true,
+    },
+    body: {
+      type: DataTypes.TEXT,
+      unique: true,
       allowNull: false,
     },
-  });
-
-  messages.associate = (models) => {
-    messages.belongsTo(models.groups, {
-      foreignKey: {
-        name: 'groupId',
-        allowNull: false,
-      }
-
-    });
-  }; // end of associates field
-  return messages;
-}; // end of export default.
+    priority:{
+      type: DataTypes.TEXT,
+      values: ['Normal', 'Urgent', 'Critical'],
+      defaultValue: 'Normal',
+    },
+  }); //end of define method
+    
+  Message.associate = (models) => {
+    Message.belongsTo(models.Group,{
+      foreignKey: 'groupId',
+      as: 'group',
+      onDelete: 'CASCADE'
+    }); //end of association definition
+  }; //end of arrow function definition
+    
+  return Message;
+}; //end of export default

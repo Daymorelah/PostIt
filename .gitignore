@@ -6,3 +6,5 @@ node_modules
 package-lock.json
 dist
 .sass-cache/
+sequelizeConfig
+./server/config/ES6config.js

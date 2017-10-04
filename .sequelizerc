@@ -1,12 +1,9 @@
 
+const path = require('path');
 
-import path from 'path';
-
-const config = {
-  "config": path.resolve('./server/config', 'config.json'),
+module.exports = {
+  "config": path.resolve('./server/config', 'config.js'),
   "models-path": path.resolve('./server/models'),
   "seeders-path": path.resolve('./server/seeders'),
   "migrations-path": path.resolve('./server/migrations')
-}
-
-export default config;
+};
