@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/Daymorelah/PostIt.svg?branch=master)](https://travis-ci.org/Daymorelah/PostIt)
 [![Coverage Status](https://coveralls.io/repos/github/Daymorelah/PostIt/badge.svg?branch=test)](https://coveralls.io/github/Daymorelah/PostIt?branch=test)
+[![Code Climate](https://codeclimate.com/github/Daymorelah/PostIt/badges/gpa.svg)](https://codeclimate.com/github/Daymorelah/PostIt)
+[![Issue Count](https://codeclimate.com/github/Daymorelah/PostIt/badges/issue_count.svg)](https://codeclimate.com/github/Daymorelah/PostIt)
+[![Test Coverage](https://codeclimate.com/github/Daymorelah/PostIt/badges/coverage.svg)](https://codeclimate.com/github/Daymorelah/PostIt/coverage)
 
 ## Andela Nigeria XIX Bootcamp Project by Hussain Ademola
 
