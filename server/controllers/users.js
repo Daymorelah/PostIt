@@ -17,7 +17,8 @@ export default {
       .then( (userName) => {
         if (userName) {
           res.status(201).send({message: 'Username already exist' });
-        } else {
+        } 
+        else {
           return userModel
             .create({
               username: req.body.username,
@@ -31,7 +32,7 @@ export default {
             })
             .catch(error => res.status(400).send(error.message));
         } //end of else statement
-      }); //end of then method
+      }).catch(error => res.status(400).send(error.message)); //end of then method
   },  //end of signUp function definition
 
   //log a user into the app
