@@ -12,6 +12,7 @@
     "cover": "set NODE_ENV=test&& babel-node ./node_modules/babel-istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- server/test/controllers/",
     "sass": "sass --watch template/css/mainStyle.scss:template/css/style.css",
     "migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "coveralls":"npm run cover && cat ./coverage/lcov.info | coveralls",
     "migrate-test": "set NODE_ENV=test&& sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
     "start-cover": "npm run migrate-test && npm test && npm run migrate-test && npm run cover"
   },
@@ -20,6 +21,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-istanbul": "^0.12.2",
+    "coveralls": "^3.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-plugin-import": "^2.6.1",
