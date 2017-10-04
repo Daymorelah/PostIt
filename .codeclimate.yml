@@ -1,0 +1,17 @@
+
+engines:
+  eslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages: javascript
+ratings:
+  paths:
+    - "server/"
+
+exclude_paths:
+  - "test/"
+  - "seeders/"
+  - "migrations/"
+  - "config/"
