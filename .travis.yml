@@ -22,3 +22,4 @@ script:
 after_success: 
   - npm run migrate-test
   - npm run coveralls
+  - npm install -g codeclimate-test-reporter
