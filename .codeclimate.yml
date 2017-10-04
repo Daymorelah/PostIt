@@ -12,7 +12,7 @@ ratings:
     - "server/"
 
 exclude_paths:
-  - "test/"
-  - "seeders/"
-  - "migrations/"
-  - "config/"
+  - "server/test/"
+  - "server/seeders/"
+  - "server/migrations/"
+  - "server/config/"
