@@ -30,14 +30,14 @@ export default {
     return groupModel.findById(groupid)
       .then((data) => {
         if (!data) {
-          return res.status(404).send({message: 'Group does not exists'});
+          return res.status(201).send({message: 'Group does not exists'});
         }else{
           return groupUsersModel.create({
             userId: userIdToAdd,
             groupId: req.params.groupid,
           })
           .then(() => { 
-            res.send({ 
+            res.status(201).send({ 
               message: 'User successfully added to the group' 
             });
           }).catch(error => res.status(400).send(error.message));
@@ -76,7 +76,7 @@ export default {
       if(!group){
         res.status(404).send({message: 'Group not found!'});
       }else{
-        return res.status(200).send(group);
+        return res.status(201).send(group);
       } //end of else statement
     }).catch( (error) =>{ res.status(404).send(error.message); });
   }, //end of group messages function definition
