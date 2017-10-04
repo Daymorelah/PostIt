@@ -5,7 +5,8 @@
      'password': 'andelabootcamp24',
      'database': 'waleDB',
      'host': '127.0.0.1',
-     'dialect': 'postgres'
+     'dialect': 'postgres',
+     'logging': false,
    },
 
    'test': {
@@ -13,7 +14,8 @@
      'password': 'andelabootcamp24',
      'database': 'test2',
      'host': '127.0.0.1',
-     'dialect': 'postgres'
+     'dialect': 'postgres',
+     'logging': false,
    },
 
    'production': {
