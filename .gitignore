@@ -9,5 +9,4 @@ dist
 sequelizeConfig
 ./server/config/ES6config.js
 coverage/
-server/seeders
 server/test/unit
