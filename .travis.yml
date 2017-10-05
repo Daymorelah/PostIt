@@ -20,3 +20,9 @@ after_success:
   - npm run migrate-test
   - npm run coveralls
   - CODECLIMATE_REPO_TOKEN=3b2f7c6a91df2185585c7af9db50a7649f21f961b51f6b024c79900e597c9416 codeclimate-test-reporter < ./coverage/lcov.info
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: GITHUB_TOKEN 
+  on:
+    branch: master
