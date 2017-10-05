@@ -18,24 +18,13 @@ module.exports = {
     'logging': false,
   },
   
-  'production': {
-    'username': process.env.USER,
-    'password': process.env.PASSWORD,
-    'database': process.env.DATABASE,
-    'host'    : process.env.HOST,
+  'production':{
+    'use_env_variable': 'DATABASE_URL',
     'dialect' : 'postgres',
-    'ssl'     : true,
-    'dialectOptions': {
-      ssl: true
-    }
-  },
-  'productions':{
-    'use_env_variable': process.env.DATABASE_URL,
-    'dialect' : 'postgres',
+    'logging': false,
     'ssl'     : true,
     'dialectOptions': {
       ssl: true
     }
   },
 };
-  

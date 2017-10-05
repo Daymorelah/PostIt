@@ -9,4 +9,4 @@ sequelizeConfig
 ./server/config/ES6config.js
 coverage/
 server/test/unit
-.env
+./.env
