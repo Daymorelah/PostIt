@@ -11,3 +11,4 @@ sequelizeConfig
 coverage/
 server/test/unit
 .env
+dist
