@@ -4,7 +4,7 @@
   "description": "A simple application that allows friends and colleagues create groups for notifications.",
   "main": "app.js",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/server/app.js",
     "build": "babel server/app.js -d dist && babel server -d dist/server",
     "server": "nodemon dist/app.js",
     "test": "set NODE_ENV=test&& mocha --compilers js:babel-register server/test/controllers/",
