@@ -18,7 +18,7 @@
      'logging': false,
    },
 
-   'productions': {
+   'production': {
      'username': process.env.USER,
      'password': process.env.PASSWORD,
      'database': process.env.DATABASE,
@@ -29,7 +29,7 @@
        ssl: true
      }
    },
-   'production':{
+   'productions':{
     'use_env_variable': process.env.DATABASE_URL,
     'dialect' : 'postgres',
     'ssl'     : true,
