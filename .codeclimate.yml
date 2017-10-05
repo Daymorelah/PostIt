@@ -19,3 +19,4 @@ exclude_paths:
   - "server/seeders/"
   - "server/migrations/"
   - "server/config/"
+  - "dist/"
