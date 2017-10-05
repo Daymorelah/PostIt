@@ -4,7 +4,6 @@ node_modules
 
 #log file for node
 package-lock.json
-dist
 .sass-cache/
 sequelizeConfig
 ./server/config/ES6config.js
