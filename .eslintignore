@@ -1,1 +1,10 @@
-migrations/
+
+server/test/
+server/seeders/
+server/migrations/
+server/config/
+node_modules/
+coverage/
+server/migrations/
+README.md
+.sass-cache
