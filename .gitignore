@@ -10,3 +10,6 @@ sequelizeConfig
 coverage/
 server/test/unit
 .env
+swagger.yaml
+swagger.json
+apiDocDist
