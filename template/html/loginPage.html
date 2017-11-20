@@ -2,57 +2,92 @@
 <html lang='en'>
   <head>
     <meta charset='UTF-8'>
+    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">    
+    <!--Import Custom Css-->
     <link rel='stylesheet' type='text/css' href='../css/style.css'/>
   </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
-          </button>
-          <a href='#' class="navbar-brand"> PostIt</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Login</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          </ul>
-        </div>
+  <body >
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="left brand-logo">PostIt</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#"><i class="material-icons right">account_circle</i>Logout</a></li>
+        </ul>
       </div>
     </nav>
-    <div class="container">
-      <h1 class="text-center">Login to the PostIt App</h1>
+    <div class="row container topspace">
+      <div class="col s12 l6 m6">
+        <div class="row center-align">
+          <div class="s12 m10 l11"><h1>PostIt</h1></div>
+        </div>
+        <div class="row hide-on-small-only">
+          <div class="col s6">
+            <i class="material-icons medium white-text">person</i>
+            <h5 class="black-text">1.Create an Account</h5>
+          </div>
+          <div class="col s6">
+              <i class="material-icons medium white-text">group</i>
+              <h5 class="black-text">2.Create Group</h5>
+            </div>
+        </div>
+        <div class="row hide-on-small-only">
+          <div class="col s6">
+             <i class="material-icons medium white-text">person_add</i>
+            <h5 class="black-text">3. Add Users to group</h5>
+          </div>
+          <div class="col s6">
+            <i class="material-icons medium white-text">send</i>
+            <h5 class="black-text">4. Send messages to group</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 l6 m6">
+        <form class="white col s12 z-depth-5">
+          <h6 class="center-align link">Already a memeber ? <a href="loginPage.html">Login</a></h6>
+          <div class="divider"></div>
+          <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix medium">account_box</i>
+            <label for="username">Username</label>
+            <input type="text" id="username" class="validate" />
+          </div>
+          </div>
+          <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mail</i>
+            <label for="email">Email</label>
+            <input type="email" id="email" class="validate" />
+          </div>
+          </div>
+          <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+            <label for="password">Password</label>
+            <input type="password" id="password" class="validate" />
+          </div>
+          </div>
+          <div class="center-align row">
+            <button type="submit" class="btn waves-effect waves-light green lighten-2" 
+            name=action>Create Account</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="container-fluid">
-      <form class='form-horizontal' action='/api/user/signin' method='post'>
-        <fieldset>
-          <div class="form-group form-group-lg">
-            <label for='username' class="control-label col-sm-4 col-lg-2"> Username:</label>
-            <div class="col-sm-8 col-lg-8">
-              <input type='text' class="form-control" id='username' placeholder='Enter username'>
-            </div>
-          </div>
-          <div class="form-group form-group-lg">
-            <label for='pwd' class='col-sm-4 col-lg-2 control-label' >Password:</label>
-            <div class="col-sm-8 col-lg-8">
-              <input type='password' class='form-control'  id='pwd' placeholder='Enter password'>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-4">
-              <button type='submit' class="btn btn-block">Login</button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
-    </div>
+    <footer class="page-footer ">
+      <div class=" footer-copyright">
+        <div class="container grey-text text-lighten-3 center-align">
+            Designed by Ademola Hussain  © Andela, 2017 
+        </div>
+      </div>
+    </footer>
+  <!--Import jQuery before materialize.js-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
   </body>
 </html>

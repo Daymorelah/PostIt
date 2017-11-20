@@ -7,20 +7,16 @@ body {
   margin-right: 0;
   padding-top: 0; }
 
-.navbar {
-  background-color: #9AAAC7; }
-  .navbar .nav li a {
-    color: #fff;
-    font-family: monospace;
-    font-size: 20px; }
-  .navbar .navbar-brand {
-    color: #fff;
-    font-family: monospace;
-    font-size: 20px; }
+.topspace{
+  margin-top: 50px;
+}
 
-h1, h3, h5 {
-  color: #fff;
-  font-family: monospace; }
+.link{
+  padding: 10px;
+}
+.feet{
+  margin: 0;
+}
 
 label {
   color: #fff; }
