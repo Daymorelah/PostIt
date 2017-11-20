@@ -23,10 +23,14 @@ Functionalities:
 
 Instructions on how to Use the app:
 
-    visit: https://postit24.herokuapp.com/api/v1/
-    Create an account
-    Create groups and add users to groups.
-    You can also send messages to groups.
+    Home page: https://postit24.herokuapp.com/api/v1/
+    Create an account using: https://postit24.herokuapp.com/api/v1/user/signup
+    User login: https://postit24.herokuapp.com/api/v1/user/login
+    List messages: https://postit24.herokuapp.com/api/v1/message/list
+    Get messagees belonging to a group: https://postit24.herokuapp.com/api/v1/group/:groupid/messages 
+    Create groups:https://postit24.herokuapp.com/api/v1/group 
+    Add users to groups:https://postit24.herokuapp.com/api/v1/group/:groupid/user
+    Send messages to groups:https://postit24.herokuapp.com/api/v1/group/:groupid/message
 
  
 Stack Used:
