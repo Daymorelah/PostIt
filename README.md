@@ -23,10 +23,14 @@ Functionalities:
 
 Instructions on how to Use the app:
 
-    visit https://andela-bootcamp-24-postit.herokuapp.com/api 
-    Create an account
-    Create groups and add users to groups.
-    You can also send messages to groups.
+    Home page: https://postit24.herokuapp.com/api/v1/
+    Create an account using: https://postit24.herokuapp.com/api/v1/user/signup
+    User login: https://postit24.herokuapp.com/api/v1/user/login
+    List messages: https://postit24.herokuapp.com/api/v1/message/list
+    Get messagees belonging to a group: https://postit24.herokuapp.com/api/v1/group/:groupid/messages 
+    Create groups:https://postit24.herokuapp.com/api/v1/group 
+    Add users to groups:https://postit24.herokuapp.com/api/v1/group/:groupid/user
+    Send messages to groups:https://postit24.herokuapp.com/api/v1/group/:groupid/message
 
  
 Stack Used:
@@ -34,6 +38,11 @@ Stack Used:
 * Node.js
 * Sequelze as the ORM.
 * Postgresql for data persistence.
+* Mocha as the testing framework and Chai as the assertion library
+* Travis CI for continous integration
+* Hound CI for style cheking commits in PRs
+* Coveralls for test coverage reporting
+* Heroku for continous deployments
 
 
 Instructions on how to get the app to your system:
