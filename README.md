@@ -8,32 +8,34 @@
 
 ### PostIt v1.0
 
-- PostIt is a simple application that allows friends and colleagues create groups for notifications.
+ PostIt is a simple application that allows friends and colleagues create groups for notifications.
 This way one person can post notifications to everyone by sending a message once. The
 application allows people create accounts, create groups and add registered users to the groups,
 and then send messages out to these groups whenever they want.
 
+#### Getting started
 
-Functionalities:
+- Fork the repo and clone to your local machine.
+- Run `npm install` to download dependencies.
+- Run `npm run server` to start the API endpoints.
+- Use postman to test the API endpionts.
+- To run tests do `npm test`.
+
+#### Prerequisites
+
+- You need a database (remote or local) to be able to use the app.
+
+ Note: The API documentation is been currently worked on and wold be relased soon.
+ Check the server/routes/index.js for available routes of the API endpoints.
+
+#### Functionalities:
+
 * User can create an account.
 * User can Create broadcast groups.
 * User can add other registered users to created groups
 * User send messages to members to of a group.
 
-
-Instructions on how to Use the app:
-
-    Home page: https://postit24.herokuapp.com/api/v1/
-    Create an account using: https://postit24.herokuapp.com/api/v1/user/signup
-    User login: https://postit24.herokuapp.com/api/v1/user/login
-    List messages: https://postit24.herokuapp.com/api/v1/message/list
-    Get messagees belonging to a group: https://postit24.herokuapp.com/api/v1/group/:groupid/messages 
-    Create groups:https://postit24.herokuapp.com/api/v1/group 
-    Add users to groups:https://postit24.herokuapp.com/api/v1/group/:groupid/user
-    Send messages to groups:https://postit24.herokuapp.com/api/v1/group/:groupid/message
-
- 
-Stack Used:
+ Stack Used:
 ===========
 * Node.js
 * Sequelze as the ORM.
@@ -45,13 +47,7 @@ Stack Used:
 * Heroku for continous deployments
 
 
-Instructions on how to get the app to your system:
-* Clone the repo.
-* Install dependencies via 'npm install'
-* Test routes using postman.
-
-
-Methodology Used:
+ Methodology Used:
 =================
 
 Agile methodology was used for the project and Trello Board was used for the project management.
