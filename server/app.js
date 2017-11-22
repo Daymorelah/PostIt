@@ -1,6 +1,7 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import path from 'path';
 import logger from 'morgan';
 import routes from './routes';
 
@@ -14,6 +15,10 @@ if( app.get('env') !== 'test'){/* istanbul ignore next */
 }
 
 routes(app);
+
+app.get('/api/v1/documentation', (req, res)=>{
+  res.sendFile('index.html', {root:path.resolve('apiDocDist')});
+});//end of get method.
 
 const port = process.env.PORT || 1111;
 
