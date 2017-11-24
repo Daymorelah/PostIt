@@ -1,1 +1,1 @@
-web:babl-node app.js
+web: npm start

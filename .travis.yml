@@ -1,0 +1,22 @@
+#Runs in sudo enabled trusty's environment
+dist: trusty
+# runs each build in an isolated VM
+sudo: required
+language: node_js
+node_js:
+  - "6"
+env:
+  - NODE_ENV=test
+#Selecte database service to use
+services:
+  - postgresql
+before_script:
+  - psql -c 'CREATE DATABASE test2;' -U postgres
+  - npm run migrate-test
+script:
+  - npm test
+after_success: 
+  - npm install -g codeclimate-test-reporter
+  - npm run migrate-test
+  - npm run coveralls
+  - CODECLIMATE_REPO_TOKEN=3b2f7c6a91df2185585c7af9db50a7649f21f961b51f6b024c79900e597c9416 codeclimate-test-reporter < ./coverage/lcov.info

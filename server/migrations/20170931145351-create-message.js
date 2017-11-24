@@ -23,7 +23,6 @@ module.exports = {
         references: {
           model: 'Groups',
           key: 'id',
-          //as: 'messagesForThisGroup'
         }
       },
       createdAt: {

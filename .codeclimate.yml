@@ -1,0 +1,22 @@
+
+engines:
+  eslint:
+    enabled: true
+    checks:
+      linebreak-style:
+        enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages: 
+        javascript:
+ratings:
+  paths:
+    - "server/"
+
+exclude_paths:
+  - "server/test/"
+  - "server/seeders/"
+  - "server/migrations/"
+  - "server/config/"
+  - "dist/"
