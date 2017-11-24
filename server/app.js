@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('dev'));
-app.use(express.static(path.resolve(__dirname+'apiDocDIst')));
+app.use(express.static(path.resolve('apiDocDIst')));
 
 routes(app);
 
