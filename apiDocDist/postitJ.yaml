@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: PostIt24
+  version: 1.0.0
+  description: >-
+    Postit24 is a multi-purpose app that connects people. Registered users can
+    create group memebers of registered users and also send broadcast messages
+    to groups.
+  contact:
+    name: Ademola Hussain
+    email: demola.hussainin@gmail.com
+servers:
+  - url: 'https://postit24.herokuapp.com/api/v1/'
+  - url: 'http://localhost:1111/api/v1'
+paths:
+  /:
+    get:
+      summary: Welcome page to the API
+      responses:
+        '200':
+          description: An object with a message property
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A welcome message from the API
+  /user/signup:
+    post:
+      summary: This creates or signs up a user.
+      requestBody:
+        description: Data needed to create a user
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: username of user
+                password:
+                  type: string
+                  description: password of user
+                email:
+                  type: string
+                  description: email of user
+            example:
+              username: John Doe
+              password: jhonnydoe
+              email: johndoe@wemail.com
+      responses:
+        '201':
+          description: Responce after creating a user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Confirms a user as been created
+        '400':
+          description: Bad request by user
+  /user/login:
+    post:
+      summary: This endpoint logs a registered user in.
+      requestBody:
+        description: Data required to log a user in
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Username of the user
+                password:
+                  type: string
+                  description: password of the user
+            example:
+              username: jane Doe
+              password: secretePassword
+      responses:
+        '200':
+          description: Asserts a successfuly login.
