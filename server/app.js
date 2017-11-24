@@ -27,10 +27,6 @@ app.get('/api/v1/documentation', (req, res)=>{
 
 routes(app);
 
-app.get('/api/v1/documentation', (req, res)=>{
-  res.sendFile('index.html', {root:path.resolve('apiDocDist')});
-});
-
 const port = process.env.PORT || 1111;
 
 app.listen(port, () => {
