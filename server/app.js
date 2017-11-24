@@ -9,9 +9,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-app.use(logger('dev'));
-app.use(express.static(path.resolve('apiDocDIst')));
+app.use(express.static(path.resolve('apiDocDist')));
 
 // app.use( (req, res, next) =>{
   // '*' is not good for production. Only if the API consumable is for public use.
@@ -22,6 +20,10 @@ app.use(express.static(path.resolve('apiDocDIst')));
 if( app.get('env') !== 'test'){/* istanbul ignore next */
   app.use(logger('dev')); 
 }
+
+app.get('/api/v1/documentation', (req, res)=>{
+  res.sendFile('index.html', {root:path.resolve('apiDocDist')});
+});//end of get method.
 
 routes(app);
 
