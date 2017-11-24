@@ -16,8 +16,9 @@ export default {
     })
       .then( (userName) => {
         if (userName) {
-          res.status(400).send({message: 'Username already exist' });
-        } else {
+          res.status(201).send({message: 'Username already exist' });
+        } 
+        else {
           return userModel
             .create({
               username: req.body.username,
@@ -31,7 +32,7 @@ export default {
             })
             .catch(error => res.status(400).send(error.message));
         } //end of else statement
-      }); //end of then method
+      }).catch(error => res.status(400).send(error.message)); //end of then method
   },  //end of signUp function definition
 
   //log a user into the app
@@ -41,9 +42,9 @@ export default {
       }
     }).then( (user) =>{
       if(!user){
-        res.status(400).send({message:'Username or Password does not exist'});
+        res.status(201).send({message:'Username or Password does not exist'});
       }else if( !(bcrypt.compareSync(req.body.password, user.password)) ){
-        res.status(400).send({message:'Username or Password does not exist'});
+        res.status(201).send({message:'Username or Password does not exist'});
       } //end of else if statement
       else{
         res.status(200).send({message:'Login successful'});

@@ -4,11 +4,12 @@ node_modules
 
 #log file for node
 package-lock.json
-dist
 .sass-cache/
 sequelizeConfig
 ./server/config/ES6config.js
+coverage/
+server/test/unit
 .env
 swagger.json
 swagger.yaml
-coverage
+apiDocDist/

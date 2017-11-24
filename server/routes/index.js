@@ -18,7 +18,7 @@ const routes = (app) => {
   app.post('/api/v1/group/:groupid/message', messageController.sendMessage);
   app.get('/api/v1/message/list', messageController.getMessages);
   app.get('/api/v1/group/:groupid/messages', groupController.groupMessages);
-
+  
 }; //end of arrow function definition
 
 export default routes;
