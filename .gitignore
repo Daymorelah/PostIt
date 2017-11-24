@@ -8,3 +8,7 @@ dist
 .sass-cache/
 sequelizeConfig
 ./server/config/ES6config.js
+.env
+swagger.json
+swagger.yaml
+coverage
