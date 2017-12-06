@@ -33,53 +33,99 @@
           </div>
         </div>
       </nav>
-      <div class="container-fluid">
-        <form class="form-horizontal">
-          <fieldset>
-            <div class="container-fluid">
-              <div class="form-group form-group-lg">
-                <label for='groupName' class="control-label col-sm-2 col-lg-3">Group Name:</label>
-                <div class="col-sm-8 col-lg-6">
-                  <input type='text' placeholder='Enter group name' id='groupName' class="form-control"/>
-                </div>
-              </div>
+      <div class="container-fluid" >
+        <div class="row">
+          <div class="col-xs-12 col-sm-3" id="listPane">
+            <div id="userPic">
+              <img alt="User's Image" src="../css/avatar1.jpg" class="img-circle"/>
             </div>
-          </fieldset>
-        </form>
-        <form class="form-horizontal">
-          <fieldset>
-            <h3>Available Users <h3 class="text-right">Added Users</h3></h3>
-            <div class="form-group form-group-lg">
-              <div class="container-fluid">
-                <div class="checkbox">
-                  <label><input type='checkbox' />Username:</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type='checkbox' />Username:</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type='checkbox' />Username:</label>
-                </div>
-              </div>
-              <div class="container-fluid">
-                <div class="form-group">
-                  <div class="col-sm-3 col-lg-3">
-                    <input type='button' value='Next' class="btn" />
+            <div class="list-group">
+              <a class="list-group-item" href="#" data-toggle="modal" data-target="#createGroup">
+                <span class="glyphicon glyphicon-plus"></span> Add Group <span class="badge">4</span></a>
+              <a class="list-group-item" href="#" data-toggle="modal" data-target="#selectUser">
+                <span class="glyphicon glyphicon-plus"></span> Add User<span class="badge">7</span></a>
+            </div>
+            <div id="createGroup" class="modal fade" role="dialog">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                      close <span class="glyphicon glyphicon-remove"></span></button>
+                    <h4 class="modal-title text-success text-center">Create a Group</h4>
                   </div>
-                  <div class="col-lg-3 col-sm-3 col-lg-pull-1">
-                    <input type='button' value='Previous' class="btn" />
+                  <div class="modal-body">
+                    <form role="form">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class="form-control" type="text" placeholder="groupname"/>
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon">Text</span>
+                        <input class="form-control" type="text" placeholder="description"/>
+                      </div>
+                    </form>
                   </div>
-                  <div class="col-lg-3 col-sm-3">
-                    <input type='button' value='Create Group' class="btn" />
-                  </div>
-                  <div class="col-lg-3 col-sm-3">
-                      <input type='button' value='Remove User' class="btn" />
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-block pull-left" data-dismiss="modal">Create</button>
                   </div>
                 </div>
               </div>
             </div>
-          </fieldset>
-        </form>
+            <div id="selectUser" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-md">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">
+                        close <span class="glyphicon glyphicon-remove"></span></button>
+                      <h4 class="modal-title text-success text-center">Add users to group</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="listofgroups">Select a group:</label>
+                        <select class="form-control" id="listofgroups">
+                          <option>group 1</option>
+                          <option>group 2</option>
+                          <option>group 3</option>
+                          <option>group 4</option>
+                        </select>
+                      </div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" value="">user 1 from database</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" value="">user 2 from database</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" value="">user 3 from database</label>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary btn-block pull-left" data-dismiss="modal">Create</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-5" id="pageContent" >
+            <div id="selectbottom" >
+              <div class="form-group">
+                <label for="listofgroups" class="lead text-light">Select a group:</label>
+                <select class="form-control" id="listofgroups">
+                  <option>group 1</option>
+                  <option>group 2</option>
+                  <option>group 3</option>
+                  <option>group 4</option>
+                </select>
+              </div>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item">User 1</li>
+              <li class="list-group-item">User 2</li>
+              <li class="list-group-item">User 3</li>
+              <li class="list-group-item">User 4</li>
+            </ul>
+          </div>
+        </div>  
       </div>
     </body>
   </html>

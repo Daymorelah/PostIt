@@ -7,30 +7,38 @@ $themeColor: #fff;
 $themeFont: monospace;
 $themeBtnColor: $themeBackgrounColor;
 $themeFontSize:20px;
-
-@mixin formButton(){
-  clear: both;
-  display: block;
-  margin: auto;
-  color: $themeColor;
-  font-family: $themeFont;
-  background-color: $themeBtnColor;
-  font-size: $themeFontSize;
-}
+$purpleliner: rgba(128, 0, 128, 0.4);
 
 @mixin pagebody(){
-  background-color: $themeBackgrounColor;
+  background-color: $themeColor;
   margin-left: 0;
   margin-right:0;
   padding-top: 0;
 }
 
+#listPane{
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color:  $purpleliner;
+  margin: 10px;
+  padding: 10px;
+  flex: 1 1 auto;
+  
+  #userPic{
+    display: inline-flex;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px;
+  }
+}
 body{
 	@include pagebody();
 }
 
 .navbar{
-  background-color: $themeBackgrounColor;
+  background-color: $purpleliner;
   .nav{
   li{
     a{
@@ -46,41 +54,19 @@ body{
   }
 } 
 
-h1,h3,h5{
-	color: $themeColor;
-	font-family: $themeFont;
+#pageContent{
+  background-color:  $purpleliner;
+  margin: 10px;
+  padding: 2em;
+  ul{
+    .list-group{
+      margin-top: 2em;
+    }
+  } 
 }
-
-label{
-color: $themeColor;
-}
-
-fieldset{
-  width: 60%;
-  display: block;
-  margin: auto;
-  padding: 1em;
-  background-color:#8A7D99;
-  border-radius: 2em;
-}
-
-.btn{
-  @include formButton();
-}
-
-.flexContainer{
-  display: -webkit-flex;
-  display: flex;
-  margin:auto;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  width: 80%;
-  background-color: #C911CF;
-}
-
-.flexItem{
-  width: 50%;
-  border-right: 2px solid #58AA0B;
-  font-family: $themeFont; 
-  //font-size: 1em;
+#selectbottom{
+  border-bottom: 2px solid orange;
+  margin-bottom: 2em;
+  color: $themeColor;
+  font-family: $themeFont;
 }
