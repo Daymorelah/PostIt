@@ -46,6 +46,7 @@ and then send messages out to these groups whenever they want.
 * Coveralls for test coverage reporting
 * Heroku for continous deployments
 
+Its API documentation can be found [here](https://postit24.herokuapp.com/api/v1/documentation)
 
  Methodology Used:
 =================
