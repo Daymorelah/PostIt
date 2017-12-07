@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box; }
+
+#listPane {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(128, 0, 128, 0.4);
+  margin: 10px;
+  padding: 10px;
+  flex: 1 1 auto; }
+  #listPane #userPic {
+    display: inline-flex;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px; }
+
+body {
+  background-color: #fff;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0; }
+
+.navbar {
+  background-color: rgba(128, 0, 128, 0.4); }
+  .navbar .nav li a {
+    color: #fff;
+    font-family: monospace;
+    font-size: 20px; }
+  .navbar .navbar-brand {
+    color: #fff;
+    font-family: monospace;
+    font-size: 20px; }
+
+#pageContent {
+  background-color: rgba(128, 0, 128, 0.4);
+  margin: 10px;
+  padding: 2em; }
+  #pageContent ul .list-group {
+    margin-top: 2em; }
+
+#selectbottom {
+  border-bottom: 2px solid orange;
+  margin-bottom: 2em;
+  color: #fff;
+  font-family: monospace; }
+
+/*# sourceMappingURL=style.css.map */

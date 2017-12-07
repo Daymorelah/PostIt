@@ -14,3 +14,5 @@ server/test/unit
 swagger.json
 swagger.yaml
 apiDocDist/
+
+webpackES6.js
