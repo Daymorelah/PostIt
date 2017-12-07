@@ -31,6 +31,7 @@ var app = (0, _express2.default)();
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use(_express2.default.static(_path2.default.resolve('apiDocDist')));
+app.use(_express2.default.static(_path2.default.resolve('client', 'public')));
 
 // app.use( (req, res, next) =>{
 // '*' is not good for production. Only if the API consumable is for public use.
@@ -43,10 +44,15 @@ if (app.get('env') !== 'test') {
   app.use((0, _morgan2.default)('dev'));
 }
 
+//serve API documentation when this route is used.
 app.get('/api/v1/documentation', function (req, res) {
   res.sendFile('index.html', { root: _path2.default.resolve('apiDocDist') });
-}); //end of get method.
+}); //end of get http method.
 
+app.get('/want', function (req, res) {
+  res.sendFile('index.html', { root: _path2.default.resolve('client', 'public') });
+}); //end of get http method
+//import routes here.
 (0, _routes2.default)(app);
 
 var port = process.env.PORT || 1111;
