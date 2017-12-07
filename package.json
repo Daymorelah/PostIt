@@ -11,24 +11,30 @@
     "cover": "set NODE_ENV=test&& babel-node ./node_modules/babel-istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- server/test/controllers/",
     "sass": "sass --watch template/css/mainStyle.scss:template/css/style.css",
     "migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
-    "coveralls":"npm run cover && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
     "migrate-test": "set NODE_ENV=test&& sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
-    "start-cover": "npm run migrate-test && npm test && npm run migrate-test && npm run cover"
+    "start-cover": "npm run migrate-test && npm test && npm run migrate-test && npm run cover",
+    "build_config": "babel webpackES6.js -o webpack.config.js",
+    "webpack": "webpack -d --watch"
   },
   "author": "Ademola Hussain",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
     "babel-istanbul": "^0.12.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
     "coveralls": "^3.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
-    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
+    "eslint-plugin-react": "^7.5.1",
     "nodemon": "^1.11.0",
     "q": "^1.5.0",
-    "sinon": "^4.0.0"
+    "sinon": "^4.0.0",
+    "webpack": "^3.10.0"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -47,6 +53,10 @@
     "path": "^0.12.7",
     "pg": "^6.4.0",
     "pg-hstore": "^2.3.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
     "sequelize": "^4.3.1",
     "sequelize-cli": "^2.7.0"
   }
