@@ -4,6 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _express = require('express');
+
+var _express2 = _interopRequireDefault(_express);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
 var _controllers = require('../controllers');
 
 var _controllers2 = _interopRequireDefault(_controllers);
@@ -30,6 +38,28 @@ var routes = function routes(app) {
   app.post('/api/v1/group/:groupid/message', messageController.sendMessage);
   app.get('/api/v1/message/list', messageController.getMessages);
   app.get('/api/v1/group/:groupid/messages', groupController.groupMessages);
+
+  app.use(_express2.default.static(_path2.default.resolve('client', 'public')));
+  app.use(_express2.default.static(_path2.default.resolve('apiDocDist')));
+  //serve API documentation when this route is used.
+  app.get('/api/v1/documentation', function (req, res) {
+    res.sendFile('index.html', { root: _path2.default.resolve('apiDocDist') });
+  }); //end of get http method.
+
+  //Serve front-end home page
+  app.get('/home', function (req, res) {
+    res.sendFile('index.html', { root: _path2.default.resolve('client', 'public') });
+  }); //end of get http method
+
+  //Serve front-end sign-up page
+  app.get('/signUpPage', function (req, res) {
+    res.sendFile('index.html', { root: _path2.default.resolve('client', 'public') });
+  }); //end of get http method
+
+  //Serve front-end login page
+  app.get('/loginPage', function (req, res) {
+    res.sendFile('index.html', { root: _path2.default.resolve('client', 'public') });
+  }); //end of get http method
 }; //end of arrow function definition
 
 exports.default = routes;
