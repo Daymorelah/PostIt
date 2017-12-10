@@ -1,9 +1,30 @@
 
 import React from 'react';
-import {render} from 'react-dom';
+import { Route, Switch, IndexRoute} from 'react-router-dom';
 import App from './components/app.jsx';
+import SignUpPage from './components/signUpPage.jsx';
+import CreateGroups from './components/createGroups.jsx';
+import MessageBoard from './components/messageBoard.jsx';
+import SendMessage from './components/sendMessage.jsx';
+import LoginPage from './components/loginPage.jsx';
+import HomePage from './components/home.jsx';
 
 
-render(
-  <App/>, document.getElementById('app')
-  );
+const Routes = ()=>{
+  return(
+  <Switch>
+    <SignUpPage exact path='/signUpPage'  />
+    <LoginPage exact path='/loginPage'  />
+    <App path='/'>
+      <Switch>
+        <Route path='/home' component={HomePage} />
+        <Route path='/createGroups' component={CreateGroups} />
+        <Route path='/sendMessage' component={SendMessage} />
+        <Route path='/messageBoard' component={MessageBoard} />
+      </Switch>
+    </App>
+  </Switch>
+  );//end of return statement
+};//end of stateless functional component 
+
+export default Routes;

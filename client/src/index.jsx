@@ -1,0 +1,13 @@
+
+import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import {render} from 'react-dom';
+import AppsRoutes from './routes.jsx';
+
+render((
+  <BrowserRouter>
+  <div>
+    <AppsRoutes/></div>
+  </BrowserRouter>),
+  document.getElementById('app')
+);
