@@ -10,7 +10,7 @@ var _path2 = _interopRequireDefault(_path);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var entryPath = _path2.default.resolve(__dirname, 'client', 'src', 'routes.jsx');
+var entryPath = _path2.default.resolve(__dirname, 'client', 'src', 'index.jsx');
 var outputPath = _path2.default.resolve(__dirname, 'client', 'public');
 
 var config = {
@@ -18,6 +18,12 @@ var config = {
   output: {
     path: outputPath,
     filename: 'bundle.js'
+  },
+  externals: {
+    cheerio: 'window',
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
   },
   module: {
     loaders: [{
