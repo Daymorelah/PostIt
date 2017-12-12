@@ -5,7 +5,7 @@ const HomePage = ()=>{
   return(
     <div>
       <div className='text-center lead text-success'>
-        Home Page page
+        Home Page page is here again
       </div>
     </div>
   );

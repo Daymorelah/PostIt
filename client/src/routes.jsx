@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Route, Switch, IndexRoute} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import App from './components/app.jsx';
 import SignUpPage from './components/signUpPage.jsx';
 import CreateGroups from './components/createGroups.jsx';
@@ -13,8 +13,8 @@ import HomePage from './components/home.jsx';
 const Routes = ()=>{
   return(
   <Switch>
-    <SignUpPage exact path='/signUpPage'  />
-    <LoginPage exact path='/loginPage'  />
+    <SignUpPage path='/signUpPage'  />
+    <LoginPage  path='/loginPage'  />
     <App path='/'>
       <Switch>
         <Route path='/home' component={HomePage} />
