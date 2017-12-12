@@ -1,6 +1,7 @@
 {
     "root":true,
-    "extends": ["airbnb-base","eslint:recommended","plugin:import/errors", "plugin:import/warnings"],
+    "extends": ["airbnb-base","eslint:recommended","plugin:import/errors", "plugin:import/warnings",
+    "plugin:react/recommended"],
     "env": {
         "es6": true,
         "node": true,
@@ -23,7 +24,7 @@
     "react/jsx-filename-extension": [1, {
       "extensions": [".js", ".jsx"]
       }],
-    "react/forbid-prop-types": 0,
+    //"react/forbid-prop-types": 0,
     "no-console": 0,
     "max-len": [1, 80, 2],
     "one-var": 0,
