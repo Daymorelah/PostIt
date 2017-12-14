@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import SignUpForm from './signUpForm.jsx';
 import SignUpResponce from './signUpResponce.jsx';
-import * as signUpActions from '../actions/signUpActions.jsx';
+import * as signUpActions from '../../actions/signUpActions.jsx';
 
 class SignUpPage extends Component{
   constructor(props){
