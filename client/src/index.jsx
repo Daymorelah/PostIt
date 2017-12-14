@@ -6,8 +6,7 @@ import AppsRoutes from './routes.jsx';
 
 render((
   <BrowserRouter>
-  <div>
-    <AppsRoutes/></div>
+    <AppsRoutes/>
   </BrowserRouter>),
   document.getElementById('app')
 );

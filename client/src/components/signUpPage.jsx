@@ -33,21 +33,21 @@ const SignUpPage = ()=>{
           <fieldset>
 
           <div className='form-group form-group-lg'>
-            <label for='username' className="control-label col-sm-4 col-sm-4 col-lg-2">Username </label>
+            <label htmlFor='username' className="control-label col-sm-4 col-sm-4 col-lg-2">Username </label>
             <div className="col-sm-8 col-lg-8">
               <input type='text' id='username'  className='form-control' placeholder=" Enter username" />
             </div>
           </div>
 
           <div className='form-group form-group-lg'>
-            <label for='password' class="control-label col-sm-4 col-lg-2">Password </label>
+            <label htmlFor='password' className="control-label col-sm-4 col-lg-2">Password </label>
             <div className="col-sm-8 col-lg-8">
               <input type='password' id='pwd' className='form-control' placeholder="Enter password" />
             </div>
           </div>
 
           <div className='form-group form-group-lg'>
-            <label for='email' className="control-label col-sm-4 col-sm-4 col-lg-2">Email </label>
+            <label htmlFor='email' className="control-label col-sm-4 col-sm-4 col-lg-2">Email </label>
             <div className="col-sm-8 col-lg-8">
               <input type='email' id='email' className='form-control' placeholder="Enter email" />
             </div>

@@ -17,7 +17,7 @@ const Routes = ()=>{
     <LoginPage  path='/loginPage'  />
     <App path='/'>
       <Switch>
-        <Route path='/home' component={HomePage} />
+        <Route exact path='/' component={HomePage} />
         <Route path='/createGroups' component={CreateGroups} />
         <Route path='/sendMessage' component={SendMessage} />
         <Route path='/messageBoard' component={MessageBoard} />

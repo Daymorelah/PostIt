@@ -14,7 +14,7 @@ const App = (props) =>{
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>                        
               </button>
-              <Link to='/home' className="navbar-brand"> PostIt</Link>
+              <Link to='/' className="navbar-brand"> PostIt</Link>
             </div>
             <div className="collapse navbar-collapse" id="myNavbar">
               <ul className="nav navbar-nav">

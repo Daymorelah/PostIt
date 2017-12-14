@@ -6,7 +6,7 @@ const LoginPage = ()=>{
     <div>
       <nav>
       <div className="nav-wrapper">
-        <a href="#" className="left brand-logo">PostIt</a>
+        <a href="/" className="left brand-logo">PostIt</a>
         <ul className="right hide-on-med-and-down">
           <li><a href="#"><i className="material-icons right">account_circle</i>Logout</a></li>
         </ul>
@@ -15,10 +15,10 @@ const LoginPage = ()=>{
     <div className="row container topspace">
       <div className="col s12 l6 m6">
         <div className="row center-align">
-          <div classNames="s12 m10 l11"><h1>PostIt</h1></div>
+          <div className="s12 m10 l11"><h1>PostIt</h1></div>
         </div>
         <div className="row hide-on-small-only">
-          <div classNames="col s6">
+          <div className="col s6">
             <i className="material-icons medium white-text">person</i>
             <h5 className="black-text">1.Create an Account</h5>
           </div>
