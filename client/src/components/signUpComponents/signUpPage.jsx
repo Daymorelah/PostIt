@@ -37,7 +37,10 @@ class SignUpPage extends Component{
           </div>
         </nav>
         <SignUpForm submitFormInput={this.formInput}/>
-        <SignUpResponce responce={this.props.responce}/>
+        { //Redirect user to home page after creating a user
+        (this.props.responce.length === 1) ? 
+        <SignUpResponce responce={this.props.responce}/> : <div></div>
+        }
       </div>
     );//end of return statement
   }//end of render method
@@ -56,7 +59,7 @@ const mapDispatchToProps = (dispatch)=>{
 }; //end of mapDispatchToProps
 
 SignUpPage.propTypes = {
-  responce: PropTypes.object,
+  responce: PropTypes.array,
   createUser: PropTypes.func
 };
 
