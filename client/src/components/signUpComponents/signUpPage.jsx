@@ -26,7 +26,7 @@ class SignUpPage extends Component{
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>                        
               </button>
-              <Link to='/' className="navbar-brand"> PostIt</Link>
+              <Link to='#' className="navbar-brand"> PostIt</Link>
             </div>
             <div className="collapse navbar-collapse" id="myNavbar">
               <ul className="nav navbar-nav navbar-right">
@@ -38,8 +38,8 @@ class SignUpPage extends Component{
         </nav>
         <SignUpForm submitFormInput={this.formInput}/>
         { //Redirect user to home page after creating a user
-        (this.props.responce.length === 1) ? 
-        <SignUpResponce responce={this.props.responce}/> : <div></div>
+        (this.props.signUpResponce.length === 1) ? 
+        <SignUpResponce responce={this.props.signUpResponce}/> : <div></div>
         }
       </div>
     );//end of return statement
@@ -48,7 +48,7 @@ class SignUpPage extends Component{
 
 const mapStateToProps = (state, ownProps)=>{
   return {
-    responce: state.signUpReducer
+    signUpResponce: state.signUpReducer
   };
 }; //end of mapStateToProps
 
@@ -59,7 +59,7 @@ const mapDispatchToProps = (dispatch)=>{
 }; //end of mapDispatchToProps
 
 SignUpPage.propTypes = {
-  responce: PropTypes.array,
+  signUpResponce: PropTypes.array,
   createUser: PropTypes.func
 };
 

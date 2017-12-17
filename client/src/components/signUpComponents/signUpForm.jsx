@@ -1,6 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 const signUpForm = (props)=>{
   let formInput, userName, passWord, email = null;
@@ -48,13 +49,13 @@ const signUpForm = (props)=>{
 
           <div className="form-group">
             <div className=" col-sm-offset-4 col-sm-4">
-              <button className='btn btn-block' type='submit'>Sign Up</button>
+              <button className='btn btn-block btn-primary' type='submit'>Sign Up</button>
             </div>
           </div>
 
           <div className="form-group">
             <div className="col-sm-offset-4 col-sm-4">
-              <button className='btn btn-block' type='button' id='btn-loginPage'>or Login</button>
+            <Link to='/loginPage'><button className='btn btn-block btn-primary' type='button'>or Login</button></Link>
             </div>
           </div>
         </form>

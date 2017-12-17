@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-const SignUpResponce = (props)=>{
+const LoginResponce = (props)=>{
   if(props.responce[0].message){
     return <Redirect to='/' />;
   }else{
@@ -14,9 +14,8 @@ const SignUpResponce = (props)=>{
   } //end of else satement
 };//end of staless component
 
-SignUpResponce.propTypes = {
+LoginResponce.propTypes = {
   responce: PropTypes.array.isRequired
 };
 
-export default SignUpResponce;
-
+export default LoginResponce;

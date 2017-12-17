@@ -46,4 +46,10 @@ body {
   color: #fff;
   font-family: monospace; }
 
+#loginForm{
+  display: flex;
+  justify-content: center;
+  margin: 5em;
+}
+
 /*# sourceMappingURL=style.css.map */

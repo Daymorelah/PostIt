@@ -1,84 +1,66 @@
 
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
+import LoginForm from './loginForm.jsx';
+import LoginResponce from './loginResponce.jsx';
+import * as LoginActions from '../../actions/loginActions.jsx';
 
-const LoginPage = ()=>{
-  return(
-    <div>
-      <nav>
-      <div className="nav-wrapper">
-        <a href="/" className="left brand-logo">PostIt</a>
-        <ul className="right hide-on-med-and-down">
-          <li><a href="#"><i className="material-icons right">account_circle</i>Logout</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div className="row container topspace">
-      <div className="col s12 l6 m6">
-        <div className="row center-align">
-          <div className="s12 m10 l11"><h1>PostIt</h1></div>
-        </div>
-        <div className="row hide-on-small-only">
-          <div className="col s6">
-            <i className="material-icons medium white-text">person</i>
-            <h5 className="black-text">1.Create an Account</h5>
-          </div>
-          <div className="col s6">
-              <i className="material-icons medium white-text">group</i>
-              <h5 className="black-text">2.Create Group</h5>
+class LoginPage extends Component {
+  constructor(props){
+    super(props);
+    this.formInputAction = this.formInputAction.bind(this);
+  }//end of constructor method
+  formInputAction(formInput){
+    this.props.useFormInput(formInput);
+  }//end of method form input action
+  render(){
+    return(
+      <div>
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>                        
+              </button>
+              <Link to='#' className="navbar-brand"> PostIt</Link>
             </div>
-        </div>
-        <div className="row hide-on-small-only">
-          <div className="col s6">
-             <i className="material-icons medium white-text">person_add</i>
-            <h5 className="black-text">3. Add Users to group</h5>
+            <div className="collapse navbar-collapse" id="myNavbar">
+              <ul className="nav navbar-nav navbar-right">
+                <li><Link to="#"><span className="glyphicon glyphicon-log-out"></span> Login</Link></li>
+                <li><Link to="/signUpPage"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
+              </ul>
+            </div>
           </div>
-          <div className="col s6">
-            <i className="material-icons medium white-text">send</i>
-            <h5 className="black-text">4. Send messages to group</h5>
-          </div>
-        </div>
+        </nav>
+        <LoginForm SubmitFormInput={this.formInputAction}/>
+        { //Redirect user to home page after creating a user
+        (this.props.loginResponce.length === 1) ? 
+        <LoginResponce responce={this.props.loginResponce}/> : <div></div>
+        }
       </div>
-      <div className="col s12 l6 m6">
-        <form className="white col s12 z-depth-5">
-          <h6 className="center-align link">Already a memeber ? <a href="loginPage.html">Login</a></h6>
-          <div className="divider"></div>
-          <div className="row">
-          <div className="input-field col s12">
-            <i className="material-icons prefix medium">account_box</i>
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" className="validate" />
-          </div>
-          </div>
-          <div className="row">
-          <div className="input-field col s12">
-            <i className="material-icons prefix">mail</i>
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" className="validate" />
-          </div>
-          </div>
-          <div className="row">
-          <div className="input-field col s12">
-            <i className="material-icons prefix">lock</i>
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password"className="validate" />
-          </div>
-          </div>
-          <div className="center-align row">
-            <button type="submit" className="btn waves-effect waves-light green lighten-2" 
-            name='action'>Create Account</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <footer className="page-footer ">
-      <div className=" footer-copyright">
-        <div className="container grey-text text-lighten-3 center-align">
-            Designed by Ademola Hussain  © Andela, 2017 
-        </div>
-      </div>
-    </footer>
-    </div>
-  );
-};//end of stateless functional component creategroup
+    );//end of return statement
+  }//end of class definition
+}//end of stateless functional component creategroup
 
-export default LoginPage;
+const mapStateToProps = (state, ownProps)=>{
+  return {
+    loginResponce: state.loginReducer
+  };
+};
+
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    useFormInput: (formInput)=>{dispatch(LoginActions.loginUser(formInput));}
+  };
+};
+
+LoginPage.propTypes = {
+  useFormInput: PropTypes.func,
+  loginResponce: PropTypes.array
+};//end of propType validation
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
