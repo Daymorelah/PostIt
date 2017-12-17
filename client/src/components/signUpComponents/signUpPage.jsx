@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import SignUpForm from './signUpForm.jsx';
 import SignUpResponce from './signUpResponce.jsx';
 import * as signUpActions from '../../actions/signUpActions.jsx';
@@ -46,11 +47,17 @@ const mapStateToProps = (state, ownProps)=>{
   return {
     responce: state.signUpReducer
   };
-};
-const mapDispatchtoProps = (dispatch)=>{
+}; //end of mapStateToProps
+
+const mapDispatchToProps = (dispatch)=>{
   return {
     createUser: (userInfo)=> dispatch(signUpActions.createUser(userInfo))
   };
+}; //end of mapDispatchToProps
+
+SignUpPage.propTypes = {
+  responce: PropTypes.object,
+  createUser: PropTypes.func
 };
 
-export default connect(mapStateToProps, mapDispatchtoProps)(SignUpPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

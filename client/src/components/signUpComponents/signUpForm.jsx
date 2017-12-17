@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const signUpForm = (props)=>{
   let formInput, userName, passWord, email = null;
@@ -61,5 +62,9 @@ const signUpForm = (props)=>{
     </div>
   );//end of return function
 };//end of signUpForm stateless functional defintion
+
+signUpForm.propTypes = {
+  submitFormInput: PropTypes.func
+};
 
 export default signUpForm;

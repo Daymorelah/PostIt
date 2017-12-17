@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SignUpResponce = (props)=>{
   return(
@@ -13,5 +14,9 @@ const SignUpResponce = (props)=>{
     </div>
   );
 };//end of staless component
+
+SignUpResponce.propTypes = {
+  responce: PropTypes.object.isRequired
+};
 
 export default SignUpResponce;
