@@ -1,6 +1,7 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const App = (props) =>{
   return(
@@ -20,7 +21,6 @@ const App = (props) =>{
               <ul className="nav navbar-nav">
                 <li><Link to="/messageBoard"> Message Board</Link></li>
                 <li><Link to="/createGroups"> Create Group</Link></li>
-                <li><Link to="/signUpPage"> Users</Link></li>
                 <li><Link to="/sendMessage"> Send message</Link></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
@@ -36,5 +36,9 @@ const App = (props) =>{
     </div>
   );//end of return statement
 }; //end of function definiton
+
+App.propTypes = {
+  children: PropTypes.any
+};
 
 export default App;

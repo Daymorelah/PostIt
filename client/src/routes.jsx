@@ -21,6 +21,7 @@ const Routes = ()=>{
         <Route path='/createGroups' component={CreateGroups} />
         <Route path='/sendMessage' component={SendMessage} />
         <Route path='/messageBoard' component={MessageBoard} />
+        <Route path='/loginPage' component={LoginPage} />
       </Switch>
     </App>
   </Switch>
