@@ -19,7 +19,7 @@ const HomePage = ()=>{
             <div id="createGroup" className="modal fade" role="dialog">
               <div className="modal-dialog modal-md">
                 <div className="modal-content">
-                  <div classN="modal-header">
+                  <div className="modal-header">
                     <button type="button" className="close" data-dismiss="modal">
                       close <span className="glyphicon glyphicon-remove"></span></button>
                     <h4 className="modal-title text-success text-center">Create a Group</h4>
