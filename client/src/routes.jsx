@@ -13,16 +13,15 @@ import HomePage from './components/home.jsx';
 const Routes = ()=>{
   return(
   <Switch>
-    <SignUpPage path='/signUpPage'  />
-    <LoginPage  path='/loginPage'  />
     <App path='/'>
       <Switch>
-        <Route exact path='/' render={ () => <Redirect to='/loginPage'/> } />
+        <Route exact path='/' render={ () => <Redirect to='/signUpPage'/> } />
         <Route path='/home' component={HomePage} />
         <Route path='/createGroups' component={CreateGroups} />
         <Route path='/sendMessage' component={SendMessage} />
         <Route path='/messageBoard' component={MessageBoard} />
         <Route path='/loginPage' component={LoginPage} />
+        <Route path='/signUpPage' component={SignUpPage} />
       </Switch>
     </App>
   </Switch>
