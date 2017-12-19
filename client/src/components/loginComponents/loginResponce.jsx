@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 const LoginResponce = (props)=>{
   if(props.responce[0].message){
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }else{
     return(
       <div>

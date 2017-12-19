@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import App from './components/app.jsx';
 import SignUpPage from './components/signUpComponents/signUpPage.jsx';
 import CreateGroups from './components/createGroups.jsx';
@@ -17,7 +17,8 @@ const Routes = ()=>{
     <LoginPage  path='/loginPage'  />
     <App path='/'>
       <Switch>
-        <Route exact path='/' component={HomePage} />
+        <Route exact path='/' render={ () => <Redirect to='/loginPage'/> } />
+        <Route path='/home' component={HomePage} />
         <Route path='/createGroups' component={CreateGroups} />
         <Route path='/sendMessage' component={SendMessage} />
         <Route path='/messageBoard' component={MessageBoard} />
