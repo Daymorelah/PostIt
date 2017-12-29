@@ -4,7 +4,7 @@
 [![Issue Count](https://codeclimate.com/github/Daymorelah/PostIt/badges/issue_count.svg)](https://codeclimate.com/github/Daymorelah/PostIt)
 [![Test Coverage](https://codeclimate.com/github/Daymorelah/PostIt/badges/coverage.svg)](https://codeclimate.com/github/Daymorelah/PostIt/coverage)
 
-## Andela Nigeria XIX Bootcamp Project by Hussain Ademola
+## PostIt Project by Hussain Ademola
 
 ### PostIt v1.0
 
@@ -57,7 +57,7 @@ Agile methodology was used for the project and Trello Board was used for the pro
 Credits:
 ========
 
-Andela Bootcamp Learning Facilitators
+Open Source tutorials
 
 
 Thank You!!!
