@@ -7,7 +7,7 @@ import CreateGroups from './components/createGroups.jsx';
 import MessageBoard from './components/messageBoard.jsx';
 import SendMessage from './components/sendMessage.jsx';
 import LoginPage from './components/loginComponents/loginPage.jsx';
-import HomePage from './components/home.jsx';
+import HomePage from './components/homeComponents/home.jsx';
 
 
 const Routes = ()=>{

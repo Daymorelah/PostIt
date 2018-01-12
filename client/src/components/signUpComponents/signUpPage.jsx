@@ -31,7 +31,7 @@ class SignUpPage extends Component{
             <div className="collapse navbar-collapse" id="myNavbar">
               <ul className="nav navbar-nav navbar-right">
                 <li><Link to="/loginPage"><span className="glyphicon glyphicon-log-out"></span> Login</Link></li>
-                <li><Link to="/signUpPage"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
+                <li><Link to="/"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
               </ul>
             </div>
           </div>

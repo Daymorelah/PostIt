@@ -1,43 +1,61 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const HomePage = ()=>{
+const HomePage = (props)=>{
   return(
     <div>
       <div className="container-fluid" >
         <div className="row">
           <div className="col-xs-12 col-sm-3" id="listPane">
             <div id="userPic">
-              <img alt="User's Image" src="./avatar1.jpg" className="img-circle"/>
+              <img alt="User's Image" src="./avatar1.jpg" 
+              className="img-circle"/>
             </div>
             <div className="list-group">
-              <a className="list-group-item" href="#" data-toggle="modal" data-target="#createGroup">
-                <span className="glyphicon glyphicon-plus"></span> Add Group <span className="badge">4</span></a>
-              <a className="list-group-item" href="#" data-toggle="modal" data-target="#selectUser">
-                <span className="glyphicon glyphicon-plus"></span> Add User<span className="badge">7</span></a>
+              <a className="list-group-item" href="#" data-toggle="modal" 
+              data-target="#createGroup">
+                <span className="glyphicon glyphicon-plus"></span> Add Group 
+                <span className="badge">4</span></a>
+              <a className="list-group-item" href="#" data-toggle="modal" 
+              data-target="#selectUser">
+                <span className="glyphicon glyphicon-plus"></span> Add User
+                {props.userList.map( (n,i) => { 
+                  return(<span key={i} className="badge"> {n.number} </span>);
+                })}
+                 {console.log('user lisst is ===>',props.userList[0])}
+              </a>
             </div>
             <div id="createGroup" className="modal fade" role="dialog">
               <div className="modal-dialog modal-md">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <button type="button" className="close" data-dismiss="modal">
-                      close <span className="glyphicon glyphicon-remove"></span></button>
-                    <h4 className="modal-title text-success text-center">Create a Group</h4>
+                    <button type="button" className="close" 
+                    data-dismiss="modal">
+                      close <span className="glyphicon glyphicon-remove">
+                      </span></button>
+                    <h4 className="modal-title text-success text-center">
+                    Create a Group</h4>
                   </div>
                   <div className="modal-body">
                     <form role="form">
                       <div className="input-group">
-                        <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
-                        <input className="form-control" type="text" placeholder="groupname"/>
+                        <span className="input-group-addon">
+                        <i className="glyphicon glyphicon-user"></i></span>
+                        <input className="form-control" type="text" 
+                        placeholder="groupname"/>
                       </div>
                       <div className="input-group">
                         <span className="input-group-addon">Text</span>
-                        <input className="form-control" type="text" placeholder="description"/>
+                        <input className="form-control" type="text"
+                         placeholder="description"/>
                       </div>
                     </form>
                   </div>
                   <div className="modal-footer">
-                    <button type="submit" className="btn btn-primary btn-block pull-left" data-dismiss="modal">Create</button>
+                    <button type="submit" 
+                    className="btn btn-primary btn-block pull-left"
+                    data-dismiss="modal">Create</button>
                   </div>
                 </div>
               </div>
@@ -46,9 +64,12 @@ const HomePage = ()=>{
                 <div className="modal-dialog modal-md">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <button type="button" className="close" data-dismiss="modal">
-                        close <span className="glyphicon glyphicon-remove"></span></button>
-                      <h4 className="modal-title text-success text-center">Add users to group</h4>
+                      <button type="button" className="close"
+                       data-dismiss="modal">
+                        close <span className="glyphicon glyphicon-remove">
+                        </span></button>
+                      <h4 className="modal-title text-success text-center">
+                      Add users to group</h4>
                     </div>
                     <div className="modal-body">
                       <div className="form-group">
@@ -61,17 +82,22 @@ const HomePage = ()=>{
                         </select>
                       </div>
                       <div className="checkbox">
-                        <label><input type="checkbox" value=""/>user 1 from database</label>
+                        <label><input type="checkbox" value=""/>
+                        user 1 from database</label>
                       </div>
                       <div className="checkbox">
-                        <label><input type="checkbox" value=""/>user 2 from database</label>
+                        <label><input type="checkbox" value=""/>
+                        user 2 from database</label>
                       </div>
                       <div className="checkbox">
-                        <label><input type="checkbox" value=""/>user 3 from database</label>
+                        <label><input type="checkbox" value=""/>
+                        user 3 from database</label>
                       </div>
                     </div>
                     <div className="modal-footer">
-                      <button type="submit" className="btn btn-primary btn-block pull-left" data-dismiss="modal">Create</button>
+                      <button type="submit" 
+                      className="btn btn-primary btn-block pull-left" 
+                      data-dismiss="modal">Create</button>
                     </div>
                   </div>
                 </div>
@@ -80,7 +106,8 @@ const HomePage = ()=>{
           <div className="col-xs-12 col-sm-5" id="pageContent" >
             <div id="selectbottom" >
               <div className="form-group">
-                <label htmlFor="listofgroups" className="lead text-light">Select a group:</label>
+                <label htmlFor="listofgroups" 
+                className="lead text-light">Select a group:</label>
                 <select className="form-control" id="listofgroups">
                   <option>group 1</option>
                   <option>group 2</option>
@@ -101,5 +128,9 @@ const HomePage = ()=>{
     </div>
   );
 };//end of stateless functional component creategroup
+
+HomePage.propTypes = {
+  userList: PropTypes.array
+};
 
 export default HomePage;

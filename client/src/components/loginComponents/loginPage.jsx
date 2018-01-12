@@ -21,7 +21,8 @@ class LoginPage extends Component {
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <button type="button" className="navbar-toggle" 
+              data-toggle="collapse" data-target="#myNavbar">
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>                        
@@ -30,8 +31,10 @@ class LoginPage extends Component {
             </div>
             <div className="collapse navbar-collapse" id="myNavbar">
               <ul className="nav navbar-nav navbar-right">
-                <li><Link to="#"><span className="glyphicon glyphicon-log-out"></span> Login</Link></li>
-                <li><Link to="/signUpPage"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
+                <li><Link to="#"><span className="glyphicon glyphicon-log-out">
+                </span> Login</Link></li>
+                <li><Link to="/"><span className="glyphicon glyphicon-user">
+                </span> Sign Up</Link></li>
               </ul>
             </div>
           </div>
@@ -46,7 +49,7 @@ class LoginPage extends Component {
   }//end of class definition
 }//end of stateless functional component creategroup
 
-const mapStateToProps = (state, ownProps)=>{
+const mapStateToProps = (state)=>{
   return {
     loginResponce: state.loginReducer
   };
