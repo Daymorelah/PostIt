@@ -15,8 +15,10 @@ const HomePage = (props)=>{
             <div className="list-group">
               <a className="list-group-item" href="#" data-toggle="modal" 
               data-target="#createGroup">
-                <span className="glyphicon glyphicon-plus"></span> Add Group 
-                <span className="badge">4</span></a>
+                <span className="glyphicon glyphicon-plus"></span> Add Group
+                {props.groupList.map( (n,i)=>{
+                  return(<span key={i} className="badge"> {n.numberOfGroups} </span>);
+                })} </a>
               <a className="list-group-item" href="#" data-toggle="modal" 
               data-target="#selectUser">
                 <span className="glyphicon glyphicon-plus"></span> Add User
@@ -75,10 +77,15 @@ const HomePage = (props)=>{
                       <div className="form-group">
                         <label htmlFor="listofgroups">Select a group:</label>
                         <select className="form-control" id="listofgroups">
-                          <option>group 1</option>
-                          <option>group 2</option>
-                          <option>group 3</option>
-                          <option>group 4</option>
+                          {props.groupList.map( (n)=>{
+                            let myGroups = n.groups;
+                            return(
+                              myGroups.map((mygroup,i)=>{
+                                return(<option key={i}>{mygroup.groupName}
+                                </option>);
+                              })
+                            );
+                          })}
                         </select>
                       </div>
                       <div>
@@ -105,24 +112,34 @@ const HomePage = (props)=>{
             </div>
           </div>
           <div className="col-xs-12 col-sm-5" id="pageContent" >
-            <div id="selectbottom" >
-              <div className="form-group">
-                <label htmlFor="listofgroups" 
-                className="lead text-light">Select a group:</label>
-                <select className="form-control" id="listofgroups">
-                  <option>group 1</option>
-                  <option>group 2</option>
-                  <option>group 3</option>
-                  <option>group 4</option>
-                </select>
-              </div>
-            </div>
-            <ul className="list-group">
-              <li className="list-group-item">User 1</li>
-              <li className="list-group-item">User 2</li>
-              <li className="list-group-item">User 3</li>
-              <li className="list-group-item">User 4</li>
-            </ul>
+              {props.groupList.map( (n, i)=>{
+                let mygroup = n.groups;
+                return(
+                  <div key={i}>
+                  <div className="form-group">
+                    <label htmlFor="listofgroups" 
+                    className="lead text-light">Select a group:</label>
+                    <select className="form-control" id="listofgroups">
+                      {mygroup.map((group,j)=>{
+                        return(
+                          <option key={j}>{group.groupName}</option>
+                        );
+                      })}
+                    </select>
+                  </div>    
+                  <ul className="list-group">
+                    {mygroup[0].usersOfThisGroup.map((groupUser,k)=>{
+                      console.log('users of this group is ===>', groupUser.username);
+                      return <li key={k} className="list-group-item"> {groupUser.username} my </li>;
+                    })}
+                      {/* <li className="list-group-item">User 1</li>
+                      <li className="list-group-item">User 2</li>
+                      <li className="list-group-item">User 3</li>
+                      <li className="list-group-item">User 4</li> */}
+                  </ul>
+                  </div>
+                );
+              })}
           </div>
         </div>  
       </div>
@@ -131,7 +148,8 @@ const HomePage = (props)=>{
 };//end of stateless functional component creategroup
 
 HomePage.propTypes = {
-  userList: PropTypes.array
+  userList: PropTypes.array,
+  groupList: PropTypes.array
 };
 
 export default HomePage;
