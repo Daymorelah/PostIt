@@ -5,7 +5,7 @@ const CreateGroup = ()=>{
   return(
     <div>
       <div className='text-center lead text-success'>
-        Creaet Group page
+        Create Group page
       </div>
     </div>
   );

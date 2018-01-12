@@ -21,7 +21,7 @@ const HomePage = (props)=>{
               data-target="#selectUser">
                 <span className="glyphicon glyphicon-plus"></span> Add User
                 {props.userList.map( (n,i) => { 
-                  return(<span key={i} className="badge"> {n.number} </span>);
+                  return(<span key={i} className="badge"> {n.numberOfUsers} </span>);
                 })}
                  {console.log('user lisst is ===>',props.userList[0])}
               </a>
@@ -81,17 +81,18 @@ const HomePage = (props)=>{
                           <option>group 4</option>
                         </select>
                       </div>
-                      <div className="checkbox">
-                        <label><input type="checkbox" value=""/>
-                        user 1 from database</label>
-                      </div>
-                      <div className="checkbox">
-                        <label><input type="checkbox" value=""/>
-                        user 2 from database</label>
-                      </div>
-                      <div className="checkbox">
-                        <label><input type="checkbox" value=""/>
-                        user 3 from database</label>
+                      <div>
+                        {props.userList.map((n)=>{
+                          let myUsers = n.users;
+                          return( 
+                            myUsers.map((myuser,i)=>{
+                              return(<div key={i} className='checkbox'>
+                                <label><input type='checkbox' value=''/>
+                                {myuser.username}</label>
+                              </div>);
+                            })
+                          );
+                        })}
                       </div>
                     </div>
                     <div className="modal-footer">

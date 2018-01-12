@@ -17,7 +17,7 @@ class Home extends Component {
     return(
       <div>
         {console.log('In home jsx this.props.users is ===> ',this.props.users)}
-        <HomePage userList={this.props.users} />
+        <HomePage userList={this.props.users} groupList={this.props.groups}/>
       </div>
     );
   }
