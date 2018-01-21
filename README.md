@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/Daymorelah/PostIt/badges/gpa.svg)](https://codeclimate.com/github/Daymorelah/PostIt)
 [![Issue Count](https://codeclimate.com/github/Daymorelah/PostIt/badges/issue_count.svg)](https://codeclimate.com/github/Daymorelah/PostIt)
 [![Test Coverage](https://codeclimate.com/github/Daymorelah/PostIt/badges/coverage.svg)](https://codeclimate.com/github/Daymorelah/PostIt/coverage)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## PostIt Project by Hussain Ademola
 
