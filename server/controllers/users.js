@@ -5,7 +5,6 @@ import models from '../models';
 
 require ('dotenv').config();
 
-const salt = 10;
 const secrete = process.env.SECRETE;
 const userModel = models.User;
 const groupModel = models.Group;
@@ -26,7 +25,7 @@ export default {
           return userModel
             .create({
               username: req.body.username,
-              password: bcrypt.hashSync(req.body.password,salt),
+              password: req.body.password,
               email: req.body.email,
             })
             .then( (data) => {
@@ -53,7 +52,7 @@ export default {
     }).then( (user) =>{
       if(!user){
         res.status(201).send({message:'Username or Password does not exist'});
-      }else if( !(bcrypt.compareSync(req.body.password, user.password)) ){
+      }else if( ! user.verifyPassword(req.body.password) ){
         res.status(201).send({message:'Username or Password does not exist'});
       } //end of else if statement
       else{
@@ -65,7 +64,7 @@ export default {
         return res.status(200).send({token, message:'Login successful'});
       } //end of else statement
     }).catch(error => res.status(404).send(error.message));
-  },
+  }, //end of login user method
 
   //List users in the database.
   list(req, res) {
@@ -78,5 +77,6 @@ export default {
     })
       .then(data => res.status(201).send(data))
       .catch(error => res.status(404).send(error.message));
-  },
+  }, //end of list method
+
 };
