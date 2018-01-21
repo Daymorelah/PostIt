@@ -1,8 +1,12 @@
 
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import models from '../models';
 
+require ('dotenv').config();
+
 const salt = 10;
+const secrete = process.env.SECRETE;
 const userModel = models.User;
 const groupModel = models.Group;
 
@@ -26,7 +30,13 @@ export default {
               email: req.body.email,
             })
             .then( (data) => {
+              const token = jwt.sign({
+                userId: data.id,
+                username: data.username,
+                email: data.email
+              }, secrete, {expiresIn: '1 day'});
               res.status(201).send({
+                token,
                 message:`User ${data.username} created successfully`
               }); //end of send method
             })
@@ -47,7 +57,12 @@ export default {
         res.status(201).send({message:'Username or Password does not exist'});
       } //end of else if statement
       else{
-        res.status(200).send({message:'Login successful'});
+        const token = jwt.sign({
+          userId: user.id,
+          username: user.username,
+          email: user.email
+        }, secrete, {expiresIn: '1 day'});
+        return res.status(200).send({token, message:'Login successful'});
       } //end of else statement
     }).catch(error => res.status(404).send(error.message));
   },
