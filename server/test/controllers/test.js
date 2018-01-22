@@ -31,7 +31,7 @@ describe('PostIt Tests:', () => {
         .end((err, res) => {
           mytoken += res.body.token;
           console.log('the token is: ', mytoken);
-          expect(err).to.be.null;
+          //expect(err).to.be.null;
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('message','User Sheun created successfully');
           done(err);
