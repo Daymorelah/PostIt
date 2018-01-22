@@ -29,12 +29,17 @@ describe('PostIt Tests:', () => {
           password: 'password123',
         })
         .end((err, res) => {
+          if (err) {
+            console.log('Error message:',err.message ,'Erro:', err);
+          }else{
           mytoken += res.body.token;
           console.log('the token is: ', mytoken);
+          console.log('res.body.token is: ', res.body.token);
           //expect(err).to.be.null;
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('message','User Sheun created successfully');
-          done(err);
+          }
+          done();
         });
     });
 
