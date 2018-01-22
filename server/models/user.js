@@ -73,8 +73,8 @@ export default (sequelize, DataTypes) => {
     }); //end of belongsToMany association definition    
   }; //end of arrow function definition
   
-  User.prototype.verifypassword = (userPassword)=> {
-    return bcrypt.compareSync(userPassword, this.password);
+  User.prototype.verifyPassword = (userPassword, basepassword)=> {
+    return bcrypt.compareSync(userPassword, basepassword);
   }; //end of model method veifyuser
 
   User.prototype.filterUserDetails = ()=> {

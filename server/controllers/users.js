@@ -52,7 +52,7 @@ export default {
     }).then( (user) =>{
       if(!user){
         res.status(201).send({message:'Username or Password does not exist'});
-      }else if( ! user.verifyPassword(req.body.password) ){
+      }else if( ! user.verifyPassword(req.body.password, user.password) ){
         res.status(201).send({message:'Username or Password does not exist'});
       } //end of else if statement
       else{
