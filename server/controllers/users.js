@@ -1,8 +1,11 @@
 
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import models from '../models';
 
-const salt = 10;
+require ('dotenv').config();
+
+const secrete = process.env.SECRETE;
 const userModel = models.User;
 const groupModel = models.Group;
 
@@ -22,11 +25,17 @@ export default {
           return userModel
             .create({
               username: req.body.username,
-              password: bcrypt.hashSync(req.body.password,salt),
+              password: req.body.password,
               email: req.body.email,
             })
             .then( (data) => {
+              const token = jwt.sign({
+                userId: data.id,
+                username: data.username,
+                email: data.email
+              }, secrete, {expiresIn: '1 day'});
               res.status(201).send({
+                token,
                 message:`User ${data.username} created successfully`
               }); //end of send method
             })
@@ -43,14 +52,19 @@ export default {
     }).then( (user) =>{
       if(!user){
         res.status(201).send({message:'Username or Password does not exist'});
-      }else if( !(bcrypt.compareSync(req.body.password, user.password)) ){
+      }else if( ! user.verifyPassword(req.body.password, user.password) ){
         res.status(201).send({message:'Username or Password does not exist'});
       } //end of else if statement
       else{
-        res.status(200).send({message:'Login successful'});
+        const token = jwt.sign({
+          userId: user.id,
+          username: user.username,
+          email: user.email
+        }, secrete, {expiresIn: '1 day'});
+        return res.status(200).send({token, message:'Login successful'});
       } //end of else statement
     }).catch(error => res.status(404).send(error.message));
-  },
+  }, //end of login user method
 
   //List users in the database.
   list(req, res) {
@@ -63,5 +77,6 @@ export default {
     })
       .then(data => res.status(201).send(data))
       .catch(error => res.status(404).send(error.message));
-  },
+  }, //end of list method
+
 };
