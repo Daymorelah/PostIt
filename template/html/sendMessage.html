@@ -33,29 +33,35 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container">
       <form action='/api/group/groupid/message' method='post' class="form-horizontal">
         <fieldset>
-          <div class="container-fluid">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <h3 for="selectGroup" class="text-center lead">Select a group to post a message to</h3>
+                  <select id='selectGroup' class="form-control">
+                    <option value='groupID' id='groupID'>Family</option>
+                    <option value='groupID' id='groupID'>Friends</option>
+                    <option value='groupID' id='groupID'>Project Collegues</option>
+                  </select>
+                </div>
+              </div>
 
-            <div class="form-group">
-              <h3 class="text-center">Select a group to post a message to</h3>
-              <select id='selectGroup' class="form-control">
-                <option value='groupID' id='groupID'>Family</option>
-                <option value='groupID' id='groupID'>Friends</option>
-                <option value='groupID' id='groupID'>Project Collegues</option>
-              </select>
+              <div class="col">
+                <div class="form-group">
+                  <h3 for='messageBox' class="text-center lead">Enter your message below</h3>
+                  <textarea id='messageBox' rows='10' class="form-control" /></textarea>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="form-group">
+                  <button class='btn btn-primary' id='sendMessage'>Send Message</button>
+                </div>
+              </div>
             </div>
-
-            <div class="form-group">
-              <h3 for='messageBox' class="text-center">Enter your message below</h3>
-              <textarea id='messageBox' rows='10' class="form-control" /></textarea>
-            </div>
-
-            <div class="form-group">
-              <input type='button' value='Send Message' class='btn form-conrol' id='sendMessage'>
-            </div>
-
           </div>
         </fieldset>
       </form>

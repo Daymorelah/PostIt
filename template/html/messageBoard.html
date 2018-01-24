@@ -34,17 +34,23 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid">
-      <h3>Select a group to show messages from that group</h3>
-      <div class="container-fluid">
-        <div class="flexContainer text-center">
-          <div class="flexItem">  
-            <h5>check this out</h5>      
-          </div>
-          <div class="flexItem">
-            <h5>And check this out again</h5>
-          </div>
+    <div class="container">
+      <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <h3>Select a group to show messages from that group</h3>
+          <select id='selectGroup' class="form-control">
+              <option value='groupID' id='groupID'>Family</option>
+              <option value='groupID' id='groupID'>Friends</option>
+              <option value='groupID' id='groupID'>Project Collegues</option>
+          </select>
         </div>
+      </div>
+      <div class="col">
+        <div class="container" style="border:2px solid rgba(255, 165, 0, 0.4)">
+          <p class="lead text-center">Messages are shown here</p>
+        </div>
+      </div>
       </div>
     </div>
   </body>
