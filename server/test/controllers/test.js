@@ -30,7 +30,7 @@ describe('PostIt Tests:', () => {
         })
         .end((err, res) => {
           if (err) {
-            console.log('Error message:',err.message ,'Erro:', err);
+            console.log('Error message:',err.message);// ,'Erro:', err);
           }else{
           mytoken += res.body.token;
           console.log('the token is: ', mytoken);
