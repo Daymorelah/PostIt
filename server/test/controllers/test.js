@@ -4,13 +4,15 @@ import chaiHttp from 'chai-http';
 //import {User} from '../../models';
 import app from '../../app';
 
+
 chai.use(chaiHttp);
 const expect = chai.expect;
+let mytoken = '';
 
 describe('PostIt Tests:', () => {
 
-  describe('Integration tests for User model', () => {
-    it('Should welcome the using the API', (done) =>{
+  describe('Integration tests for User model: ', () => {
+    it('Should welcome the user to the API', (done) =>{
       chai.request(app).get('/api/v1')
         .end( (err, res) =>{
           expect(res.status).to.deep.equal(200);
@@ -20,19 +22,6 @@ describe('PostIt Tests:', () => {
         });
     });
 
-    it('Returns list of users and groups each user belongs to', (done) => {
-      chai.request(app).get('/api/v1/user/list')
-        .end( (err, res) => {
-          expect(true).to.be.true;
-          expect(res.status).to.deep.equal(201);
-          expect(res.body).to.be.an('array');
-          expect(res.body[0]).to.have.property('email');
-          expect(res.body[0]).to.have.property('groupsForThisUser');
-          expect(res.body[0]['groupsForThisUser']).to.be.an('array');
-          done();
-        });
-    }); 
-
     it('Creates a user in the database', (done) => {
       chai.request(app).post('/api/v1/user/signup').type('form')
         .send({
@@ -41,10 +30,31 @@ describe('PostIt Tests:', () => {
           password: 'password123',
         })
         .end((err, res) => {
-          expect(err).to.be.null;
+          if (err) {
+            console.log('Error message:',err.message);// ,'Erro:', err);
+          }else{
+          mytoken += res.body.token;
+          console.log('the token is: ', mytoken);
+          console.log('res.body.token is: ', res.body.token);
+          //expect(err).to.be.null;
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('message','User Sheun created successfully');
-          done(err);
+          }
+          done();
+        });
+    });
+
+    it('Returns list of users and groups each user belongs to', (done) => {
+      chai.request(app).get('/api/v1/user/list')
+        .set('x-access-token', mytoken)
+        .end( (err, res) => {
+          expect(true).to.be.true;
+          expect(res.status).to.deep.equal(201);
+          expect(res.body).to.be.an('array');
+          expect(res.body[0]).to.have.property('email');
+          expect(res.body[0]).to.have.property('groupsForThisUser');
+          expect(res.body[0]['groupsForThisUser']).to.be.an('array');
+          done();
         });
     });
 
@@ -109,7 +119,8 @@ describe('PostIt Tests:', () => {
 
     it('Should create a group', (done) => {
       chai.request(app).post('/api/v1/group')
-        .type('form')
+      .set('x-access-token', mytoken)
+      .type('form')
         .send({
           groupName: 'Teen',
           discription: 'Group of teenagers',
@@ -124,6 +135,7 @@ describe('PostIt Tests:', () => {
 
     it('Should add a user to a group', (done) => {
       chai.request(app).post('/api/v1/group/2/user')
+        .set('x-access-token', mytoken)
         .type('form')
         .send({
           id: 3,
@@ -139,6 +151,7 @@ describe('PostIt Tests:', () => {
     it('Should check if a group exist', (done) => {
       chai.request(app).post('/api/v1/group/8/user')
         .type('form')
+        .set('x-access-token', mytoken)
         .send({
           id: 3,
         })
@@ -152,6 +165,7 @@ describe('PostIt Tests:', () => {
 
     it('Should list groups with it users ', (done) => {
       chai.request(app).get('/api/v1/group/list')
+        .set('x-access-token', mytoken)  
         .end((err, res) => {
           expect(res.body).to.be.an('array');
           expect(res.body[0]).to.have.property('groupName');
@@ -164,6 +178,7 @@ describe('PostIt Tests:', () => {
 
     it('Should list all messages belonging to a paticular group', (done) => {
       chai.request(app).get('/api/v1/group/3/messages')
+        .set('x-access-token', mytoken)
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('discription');
@@ -178,7 +193,8 @@ describe('PostIt Tests:', () => {
   describe('Integration test for message model', () => {
 
     it('should send a message to a group', (done) => {
-      chai.request(app).post('/api/v1/group/2/message')
+      chai.request(app).post('/api/v1/group/2/message')  
+        .set('x-access-token', mytoken)
         .type('form')
         .send({
           message: 'User4',
@@ -194,6 +210,7 @@ describe('PostIt Tests:', () => {
 
     it('should check if a group exist', (done) => {
       chai.request(app).post('/api/v1/group/22/message')
+        .set('x-access-token', mytoken)
         .type('form')
         .send({
           message: 'User4',
@@ -209,6 +226,7 @@ describe('PostIt Tests:', () => {
     
     it('List messages with the group it belongs to', (done) => {
       chai.request(app).get('/api/v1/message/list')
+        .set('x-access-token', mytoken)
         .end((err, res) => {
           expect(res.status).to.deep.equal(201);
           expect(res.body).to.be.an('array');
