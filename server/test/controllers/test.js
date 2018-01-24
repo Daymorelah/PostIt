@@ -10,8 +10,8 @@ let mytoken = '';
 
 describe('PostIt Tests:', () => {
 
-  describe('Integration tests for User model', () => {
-    it('Should welcome the using the API', (done) =>{
+  describe('Integration tests for User model: ', () => {
+    it('Should welcome the user to the API', (done) =>{
       chai.request(app).get('/api/v1')
         .end( (err, res) =>{
           expect(res.status).to.deep.equal(200);
