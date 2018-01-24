@@ -7,7 +7,7 @@
     "start": "node dist/server/app.js",
     "build": "babel server/app.js -d dist && babel server -d dist/server",
     "server": "nodemon server/app.js --exec babel-node",
-    "test": "set NODE_ENV=test&& mocha --compilers js:babel-register server/test/controllers/",
+    "test": "set NODE_ENV=test&& node setup.js && mocha --compilers js:babel-register server/test/controllers/",
     "cover": "set NODE_ENV=test&& babel-node ./node_modules/babel-istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- server/test/controllers/",
     "sass": "sass --watch template/css/mainStyle.scss:template/css/style.css",
     "migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
