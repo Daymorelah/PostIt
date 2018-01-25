@@ -3,7 +3,7 @@ import Axios from 'axios';
 import * as actionType from './actionTypes.jsx';
 
 // const signUpUrl = 'https://postit24.herokuapp.com/api/v1/user/signup';
-const SignUpUrl = 'http://localhost:1111/api/v1/user/signup';
+const SignUpUrl = 'http://postit24.herokuapp.com/api/v1/user/signup';
 
 export const createUserSuccess = (message)=>{
   return{

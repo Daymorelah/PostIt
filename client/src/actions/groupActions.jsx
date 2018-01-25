@@ -2,7 +2,7 @@
 import Axios from 'axios';
 import * as AcionTypes from './actionTypes.jsx';
 
-const getUsersUrl = 'http://localhost:1111/api/v1/group/list';
+const getUsersUrl = 'http://postit24.herokuapp.com/api/v1/group/list';
 
 export const getCreatedGroupsSuccess = (groups)=>{
   console.log('number of groups are ==> ', groups.length);
