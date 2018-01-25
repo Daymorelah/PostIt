@@ -1,6 +1,6 @@
 
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+//import bcrypt from 'bcrypt';
 import models from '../models';
 
 require ('dotenv').config();

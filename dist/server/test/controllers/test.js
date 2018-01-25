@@ -18,27 +18,16 @@ _chai2.default.use(_chaiHttp2.default);
 //import {User} from '../../models';
 
 var expect = _chai2.default.expect;
+var mytoken = '';
 
 describe('PostIt Tests:', function () {
 
-  describe('Integration tests for User model', function () {
-    it('Should welcome the using the API', function (done) {
+  describe('Integration tests for User model: ', function () {
+    it('Should welcome the user to the API', function (done) {
       _chai2.default.request(_app2.default).get('/api/v1').end(function (err, res) {
         expect(res.status).to.deep.equal(200);
         expect(res.body).to.be.an('object');
         expect(res.body).to.have.property('message', 'Welcome to the PostIt API!');
-        done();
-      });
-    });
-
-    it('Returns list of users and groups each user belongs to', function (done) {
-      _chai2.default.request(_app2.default).get('/api/v1/user/list').end(function (err, res) {
-        expect(true).to.be.true;
-        expect(res.status).to.deep.equal(201);
-        expect(res.body).to.be.an('array');
-        expect(res.body[0]).to.have.property('email');
-        expect(res.body[0]).to.have.property('groupsForThisUser');
-        expect(res.body[0]['groupsForThisUser']).to.be.an('array');
         done();
       });
     });
@@ -49,10 +38,29 @@ describe('PostIt Tests:', function () {
         email: 'Sheungustav@naija.com',
         password: 'password123'
       }).end(function (err, res) {
-        expect(err).to.be.null;
-        expect(res.body).to.be.an('object');
-        expect(res.body).to.have.property('message', 'User Sheun created successfully');
-        done(err);
+        if (err) {
+          console.log('Error message:', err.message); // ,'Erro:', err);
+        } else {
+          mytoken += res.body.token;
+          console.log('the token is: ', mytoken);
+          console.log('res.body.token is: ', res.body.token);
+          //expect(err).to.be.null;
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('message', 'User Sheun created successfully');
+        }
+        done();
+      });
+    });
+
+    it('Returns list of users and groups each user belongs to', function (done) {
+      _chai2.default.request(_app2.default).get('/api/v1/user/list').set('x-access-token', mytoken).end(function (err, res) {
+        expect(true).to.be.true;
+        expect(res.status).to.deep.equal(201);
+        expect(res.body).to.be.an('array');
+        expect(res.body[0]).to.have.property('email');
+        expect(res.body[0]).to.have.property('groupsForThisUser');
+        expect(res.body[0]['groupsForThisUser']).to.be.an('array');
+        done();
       });
     });
 
@@ -108,7 +116,7 @@ describe('PostIt Tests:', function () {
   describe('Integration test for Group model', function () {
 
     it('Should create a group', function (done) {
-      _chai2.default.request(_app2.default).post('/api/v1/group').type('form').send({
+      _chai2.default.request(_app2.default).post('/api/v1/group').set('x-access-token', mytoken).type('form').send({
         groupName: 'Teen',
         discription: 'Group of teenagers'
       }).end(function (err, res) {
@@ -120,7 +128,7 @@ describe('PostIt Tests:', function () {
     });
 
     it('Should add a user to a group', function (done) {
-      _chai2.default.request(_app2.default).post('/api/v1/group/2/user').type('form').send({
+      _chai2.default.request(_app2.default).post('/api/v1/group/2/user').set('x-access-token', mytoken).type('form').send({
         id: 3
       }).end(function (err, res) {
         expect(res.body).to.be.an('object');
@@ -131,7 +139,7 @@ describe('PostIt Tests:', function () {
     });
 
     it('Should check if a group exist', function (done) {
-      _chai2.default.request(_app2.default).post('/api/v1/group/8/user').type('form').send({
+      _chai2.default.request(_app2.default).post('/api/v1/group/8/user').type('form').set('x-access-token', mytoken).send({
         id: 3
       }).end(function (err, res) {
         expect(res.body).to.be.an('object');
@@ -142,7 +150,7 @@ describe('PostIt Tests:', function () {
     });
 
     it('Should list groups with it users ', function (done) {
-      _chai2.default.request(_app2.default).get('/api/v1/group/list').end(function (err, res) {
+      _chai2.default.request(_app2.default).get('/api/v1/group/list').set('x-access-token', mytoken).end(function (err, res) {
         expect(res.body).to.be.an('array');
         expect(res.body[0]).to.have.property('groupName');
         expect(res.body[0]).to.have.property('usersOfThisGroup');
@@ -153,7 +161,7 @@ describe('PostIt Tests:', function () {
     });
 
     it('Should list all messages belonging to a paticular group', function (done) {
-      _chai2.default.request(_app2.default).get('/api/v1/group/3/messages').end(function (err, res) {
+      _chai2.default.request(_app2.default).get('/api/v1/group/3/messages').set('x-access-token', mytoken).end(function (err, res) {
         expect(res.body).to.be.an('object');
         expect(res.body).to.have.property('discription');
         expect(res.body).to.have.property('messagesForThisGroup');
@@ -167,7 +175,7 @@ describe('PostIt Tests:', function () {
   describe('Integration test for message model', function () {
 
     it('should send a message to a group', function (done) {
-      _chai2.default.request(_app2.default).post('/api/v1/group/2/message').type('form').send({
+      _chai2.default.request(_app2.default).post('/api/v1/group/2/message').set('x-access-token', mytoken).type('form').send({
         message: 'User4',
         priority: 'Normal'
       }).end(function (err, res) {
@@ -179,7 +187,7 @@ describe('PostIt Tests:', function () {
     });
 
     it('should check if a group exist', function (done) {
-      _chai2.default.request(_app2.default).post('/api/v1/group/22/message').type('form').send({
+      _chai2.default.request(_app2.default).post('/api/v1/group/22/message').set('x-access-token', mytoken).type('form').send({
         message: 'User4',
         priority: 'Normal'
       }).end(function (err, res) {
@@ -191,7 +199,7 @@ describe('PostIt Tests:', function () {
     });
 
     it('List messages with the group it belongs to', function (done) {
-      _chai2.default.request(_app2.default).get('/api/v1/message/list').end(function (err, res) {
+      _chai2.default.request(_app2.default).get('/api/v1/message/list').set('x-access-token', mytoken).end(function (err, res) {
         expect(res.status).to.deep.equal(201);
         expect(res.body).to.be.an('array');
         expect(res.body[0]).to.have.property('body');

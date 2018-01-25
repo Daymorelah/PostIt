@@ -12,10 +12,6 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
-
 var _morgan = require('morgan');
 
 var _morgan2 = _interopRequireDefault(_morgan);
@@ -30,23 +26,19 @@ var app = (0, _express2.default)();
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
-app.use(_express2.default.static(_path2.default.resolve('apiDocDist')));
 
 // app.use( (req, res, next) =>{
-// '*' is not good for production. Only if the API consumable is for public use.
-// res.header('Access-Control-Allow-Origin', '*'); //allow another domain use ur api.
-// res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-// next();});
+//   //'*' is not good for production. Only if the API consumable is for public use.
+//   res.header('Access-Control-Allow-Origin', '*'); //allow another domain use ur api.
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//   next();});
 
 if (app.get('env') !== 'test') {
   /* istanbul ignore next */
   app.use((0, _morgan2.default)('dev'));
 }
 
-app.get('/api/v1/documentation', function (req, res) {
-  res.sendFile('index.html', { root: _path2.default.resolve('apiDocDist') });
-}); //end of get method.
-
+//import routes here.
 (0, _routes2.default)(app);
 
 var port = process.env.PORT || 1111;
