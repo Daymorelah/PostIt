@@ -13,6 +13,7 @@ class SignUpPage extends Component{
     this.formInput = this.formInput.bind(this);
   }//end of constructor function.
   formInput(userInput){
+    console.log('userInfo is', userInput);
     this.props.createUser(userInput);
   }//end of forminput method definition
   render(){

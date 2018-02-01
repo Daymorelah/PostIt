@@ -31,6 +31,11 @@ const routes = (app) => {
   });//end of get http method.
 
   //Serve front-end home page
+  app.all('/', (req, res)=>{
+    res.redirect(200, '/signUpPage');
+  });//end of get http method
+
+  //Serve front-end home page
   app.get('/home', (req, res)=>{
     res.sendFile('index.html', {root:path.resolve('client','public')});
   });//end of get http method

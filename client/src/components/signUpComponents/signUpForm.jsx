@@ -19,7 +19,8 @@ const signUpForm = (props)=>{
             username:userName.value,
             password:passWord.value,
             email: email.value
-          }; props.submitFormInput(formInput);
+          };  
+          props.submitFormInput(formInput);
           event.target.reset();
         }} className='form-horizontal'>
 
